@@ -12,17 +12,7 @@
 **
 ** Unpublished copyright. This material contains proprietary information
 ** that shall be used or copied only within Zion Software Solutions, 
-** except with written permission of Zion Software Solutions.		
-**              
-****************************************************************************
-**  Change History
-****************************************************************************
-**
-** $Author$
-** $DateTime$
-** $Change$
-** $Revision$
-** $HeadURL$
+** except with written permission of Zion Software Solutions.
 **
 ***************************************************************************/
 
@@ -31,12 +21,12 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using NUnit.Framework;
-using Zion.Solutions.Data;
 using ZionSoftware.Data.Tests.NUnit.TestSupport;
+using ZionSoftware.Solutions.Data;
 
 namespace ZionSoftware.Data.Tests.NUnit
 {
-	[TestFixture]
+    [TestFixture]
 	public class DatabaseParameterizedSqlTextFixture
 	{
 		private Database m_database;

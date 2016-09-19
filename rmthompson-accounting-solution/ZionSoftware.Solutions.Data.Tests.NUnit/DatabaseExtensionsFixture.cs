@@ -12,28 +12,18 @@
 **
 ** Unpublished copyright. This material contains proprietary information
 ** that shall be used or copied only within Zion Software Solutions, 
-** except with written permission of Zion Software Solutions.		
-**              
-*******************************************************************************
-**  Change History
-****************************************************************************
-**
-** $Author$
-** $DateTime$
-** $Change$
-** $Revision$
-** $HeadURL$
+** except with written permission of Zion Software Solutions.	
 **
 ***************************************************************************/
 
 using System;
 using System.Globalization;
 using NUnit.Framework;
-using Zion.Solutions.Data;
+using ZionSoftware.Solutions.Data;
 
 namespace ZionSoftware.Data.Tests.NUnit
 {
-	[TestFixture]
+    [TestFixture]
 	public class DatabaseExtensionsFixture
 	{
 		private readonly DBNull m_dbNull = DBNull.Value;

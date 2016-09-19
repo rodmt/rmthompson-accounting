@@ -13,16 +13,6 @@
 ** Unpublished copyright. This material contains proprietary information
 ** that shall be used or copied only within Zion Software Solutions, 
 ** except with written permission of Zion Software Solutions.		
-**              
-****************************************************************************
-**  Change History
-****************************************************************************
-**
-** $Author$
-** $DateTime$
-** $Change$
-** $Revision$
-** $HeadURL$
 **
 ***************************************************************************/
 
