@@ -26,9 +26,9 @@ namespace ZionSoftware.Data.Tests.NUnit
     [TestFixture]
 	public class DatabaseExtensionsFixture
 	{
-		private readonly DBNull m_dbNull = DBNull.Value;
-		private readonly Object m_nullObject = null;
-		private readonly Object m_guidObject = "01234567-89AB-CDEF-0123-456789ABCDEF";
+		private readonly DBNull _dbNull = DBNull.Value;
+		private readonly Object _nullObject = null;
+		private readonly Object _guidObject = "01234567-89AB-CDEF-0123-456789ABCDEF";
 
 		#region AsBoolean Tests
 
@@ -39,7 +39,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Boolean expectedValue = default(Boolean);
 
 			// Act - Convert to Boolean.
-			var actualValue = m_dbNull.AsBoolean();
+			var actualValue = _dbNull.AsBoolean();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -52,7 +52,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Boolean expectedValue = true;
 
 			// Act - Convert to Boolean.
-			var actualValue = m_dbNull.AsBoolean(expectedValue);
+			var actualValue = _dbNull.AsBoolean(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -65,7 +65,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Boolean expectedValue = default(Boolean);
 
 			// Act - Convert to Boolean.
-			var actualValue = m_nullObject.AsBoolean();
+			var actualValue = _nullObject.AsBoolean();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -78,7 +78,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Boolean expectedValue = true;
 
 			// Act - Convert to Boolean.
-			var actualValue = m_nullObject.AsBoolean(expectedValue);
+			var actualValue = _nullObject.AsBoolean(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -135,7 +135,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Byte expectedValue = default(Byte);
 
 			// Act - Convert to Byte.
-			var actualValue = m_dbNull.AsByte();
+			var actualValue = _dbNull.AsByte();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -148,7 +148,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Byte expectedValue = Byte.MaxValue - 1;
 
 			// Act - Convert to Byte.
-			var actualValue = m_dbNull.AsByte(expectedValue);
+			var actualValue = _dbNull.AsByte(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -161,7 +161,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Byte expectedValue = default(Byte);
 
 			// Act - Convert to Byte.
-			var actualValue = m_nullObject.AsByte();
+			var actualValue = _nullObject.AsByte();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -174,7 +174,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Byte expectedValue = Byte.MaxValue - 1;
 
 			// Act - Convert to Byte.
-			var actualValue = m_nullObject.AsByte(expectedValue);
+			var actualValue = _nullObject.AsByte(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -233,7 +233,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Byte[] expectedValue = default(Byte[]);
 
 			// Act - Convert to ByteArray.
-			var actualValue = m_dbNull.AsBytes();
+			var actualValue = _dbNull.AsBytes();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -246,7 +246,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			var expectedValue = new Byte[] { 0x1, 0x2, 0x3, 0x4, 0xAA, 0xAF };
 
 			// Act - Convert to ByteArray.
-			var actualValue = m_dbNull.AsBytes(expectedValue);
+			var actualValue = _dbNull.AsBytes(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -259,7 +259,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Byte[] expectedValue = default(Byte[]);
 
 			// Act - Convert to ByteArray.
-			var actualValue = m_nullObject.AsBytes();
+			var actualValue = _nullObject.AsBytes();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -272,7 +272,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			var expectedValue = new Byte[] { 0x1, 0x2, 0x3, 0x4, 0xAA, 0xAF };
 
 			// Act - Convert to ByteArray.
-			var actualValue = m_nullObject.AsBytes(expectedValue);
+			var actualValue = _nullObject.AsBytes(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -334,7 +334,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Char expectedValue = default(Char);
 
 			// Act - Convert to Char.
-			var actualValue = m_dbNull.AsChar();
+			var actualValue = _dbNull.AsChar();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -347,7 +347,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Char expectedValue = 'A';
 
 			// Act - Convert to Char.
-			var actualValue = m_dbNull.AsChar(expectedValue);
+			var actualValue = _dbNull.AsChar(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -360,7 +360,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Char expectedValue = default(Char);
 
 			// Act - Convert to Char.
-			var actualValue = m_nullObject.AsChar();
+			var actualValue = _nullObject.AsChar();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -373,7 +373,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Char expectedValue = 'A';
 
 			// Act - Convert to Char.
-			var actualValue = m_nullObject.AsChar(expectedValue);
+			var actualValue = _nullObject.AsChar(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -432,7 +432,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			var expectedValue = default(DateTime);
 
 			// Act - Convert to DateTime.
-			var actualValue = m_dbNull.AsDateTime();
+			var actualValue = _dbNull.AsDateTime();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -445,7 +445,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			var expectedValue = DateTime.UtcNow;
 
 			// Act - Convert to DateTime.
-			var actualValue = m_dbNull.AsDateTime(expectedValue);
+			var actualValue = _dbNull.AsDateTime(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -458,7 +458,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			var expectedValue = default(DateTime);
 
 			// Act - Convert to DateTime.
-			var actualValue = m_nullObject.AsDateTime();
+			var actualValue = _nullObject.AsDateTime();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -471,7 +471,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			var expectedValue = DateTime.UtcNow;
 
 			// Act - Convert to DateTime.
-			var actualValue = m_nullObject.AsDateTime(expectedValue);
+			var actualValue = _nullObject.AsDateTime(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -528,7 +528,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Decimal expectedValue = default(Decimal);
 
 			// Act - Convert to Decimal.
-			var actualValue = m_dbNull.AsDecimal();
+			var actualValue = _dbNull.AsDecimal();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -541,7 +541,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			var expectedValue = new Decimal(7.2398);
 
 			// Act - Convert to Decimal.
-			var actualValue = m_dbNull.AsDecimal(expectedValue);
+			var actualValue = _dbNull.AsDecimal(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -554,7 +554,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Decimal expectedValue = default(Decimal);
 
 			// Act - Convert to Decimal.
-			var actualValue = m_nullObject.AsDecimal();
+			var actualValue = _nullObject.AsDecimal();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -567,7 +567,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			var expectedValue = new Decimal(7.2398);
 
 			// Act - Convert to Decimal.
-			var actualValue = m_nullObject.AsDecimal(expectedValue);
+			var actualValue = _nullObject.AsDecimal(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -624,7 +624,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			var expectedValue = default(Guid);
 
 			// Act - Convert to GUID.
-			var actualValue = m_dbNull.AsGuid();
+			var actualValue = _dbNull.AsGuid();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -637,7 +637,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			var expectedValue = new Guid();
 
 			// Act - Convert to GUID.
-			var actualValue = m_dbNull.AsGuid(expectedValue);
+			var actualValue = _dbNull.AsGuid(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -650,7 +650,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			var expectedValue = default(Guid);
 
 			// Act - Convert to GUID.
-			var actualValue = m_nullObject.AsGuid();
+			var actualValue = _nullObject.AsGuid();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -663,7 +663,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			var expectedValue = new Guid();
 
 			// Act - Convert to GUID.
-			var actualValue = m_nullObject.AsGuid(expectedValue);
+			var actualValue = _nullObject.AsGuid(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -720,7 +720,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Int16 expectedValue = default(Int16);
 
 			// Act - Convert to Int16.
-			var actualValue = m_dbNull.AsInt16();
+			var actualValue = _dbNull.AsInt16();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -733,7 +733,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Int16 expectedValue = Int16.MaxValue;
 
 			// Act - Convert to Int16.
-			var actualValue = m_dbNull.AsInt16(expectedValue);
+			var actualValue = _dbNull.AsInt16(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -746,7 +746,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Int16 expectedValue = default(Int16);
 
 			// Act - Convert to Int16.
-			var actualValue = m_nullObject.AsInt16();
+			var actualValue = _nullObject.AsInt16();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -759,7 +759,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Int16 expectedValue = Int16.MaxValue;
 
 			// Act - Convert to Int16.
-			var actualValue = m_nullObject.AsInt16(expectedValue);
+			var actualValue = _nullObject.AsInt16(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -815,7 +815,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Int32 expectedValue = default(Int32);
 
 			// Act - Convert to Int32.
-			var actualValue = m_dbNull.AsInt32();
+			var actualValue = _dbNull.AsInt32();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -828,7 +828,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Int32 expectedValue = Int32.MaxValue;
 
 			// Act - Convert to Int32.
-			var actualValue = m_dbNull.AsInt32(expectedValue);
+			var actualValue = _dbNull.AsInt32(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -841,7 +841,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Int32 expectedValue = default(Int32);
 
 			// Act - Convert to Int32.
-			var actualValue = m_nullObject.AsInt32();
+			var actualValue = _nullObject.AsInt32();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -854,7 +854,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Int32 expectedValue = Int32.MaxValue;
 
 			// Act - Convert to Int32.
-			var actualValue = m_nullObject.AsInt32(expectedValue);
+			var actualValue = _nullObject.AsInt32(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -910,7 +910,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Int64 expectedValue = default(Int64);
 
 			// Act - Convert to Int64.
-			var actualValue = m_dbNull.AsInt64();
+			var actualValue = _dbNull.AsInt64();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -923,7 +923,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Int64 expectedValue = Int64.MaxValue;
 
 			// Act - Convert to Int64.
-			var actualValue = m_dbNull.AsInt64(expectedValue);
+			var actualValue = _dbNull.AsInt64(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -936,7 +936,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Int64 expectedValue = default(Int64);
 
 			// Act - Convert to Int64.
-			var actualValue = m_nullObject.AsInt64();
+			var actualValue = _nullObject.AsInt64();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -949,7 +949,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Int64 expectedValue = Int64.MaxValue;
 
 			// Act - Convert to Int64.
-			var actualValue = m_nullObject.AsInt64(expectedValue);
+			var actualValue = _nullObject.AsInt64(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1005,7 +1005,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const SByte expectedValue = default(SByte);
 
 			// Act - Convert to SByte.
-			var actualValue = m_dbNull.AsSByte();
+			var actualValue = _dbNull.AsSByte();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1018,7 +1018,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const SByte expectedValue = SByte.MaxValue - 1;
 
 			// Act - Convert to SByte.
-			var actualValue = m_dbNull.AsSByte(expectedValue);
+			var actualValue = _dbNull.AsSByte(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1031,7 +1031,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const SByte expectedValue = default(SByte);
 
 			// Act - Convert to SByte.
-			var actualValue = m_nullObject.AsSByte();
+			var actualValue = _nullObject.AsSByte();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1044,7 +1044,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const SByte expectedValue = SByte.MaxValue - 1;
 
 			// Act - Convert to SByte.
-			var actualValue = m_nullObject.AsSByte(expectedValue);
+			var actualValue = _nullObject.AsSByte(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1103,7 +1103,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Single expectedValue = default(Single);
 
 			// Act - Convert to Single.
-			var actualValue = m_dbNull.AsSingle();
+			var actualValue = _dbNull.AsSingle();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1116,7 +1116,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			var expectedValue = Convert.ToSingle(7.2398);
 
 			// Act - Convert to Single.
-			var actualValue = m_dbNull.AsSingle(expectedValue);
+			var actualValue = _dbNull.AsSingle(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1129,7 +1129,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const Single expectedValue = default(Single);
 
 			// Act - Convert to Single.
-			var actualValue = m_nullObject.AsSingle();
+			var actualValue = _nullObject.AsSingle();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1142,7 +1142,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			var expectedValue = Convert.ToSingle(7.2398);
 
 			// Act - Convert to Single.
-			var actualValue = m_nullObject.AsSingle(expectedValue);
+			var actualValue = _nullObject.AsSingle(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1199,7 +1199,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const String expectedValue = default(String);
 
 			// Act - Convert to String.
-			var actualValue = DatabaseExtensions.AsString(m_dbNull);
+			var actualValue = DatabaseExtensions.AsString(_dbNull);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1212,7 +1212,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const String expectedValue = "Given Default String";
 
 			// Act - Convert to String.
-			var actualValue = m_dbNull.AsString(expectedValue);
+			var actualValue = _dbNull.AsString(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1225,7 +1225,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const String expectedValue = default(String);
 
 			// Act - Convert to String.
-			var actualValue = DatabaseExtensions.AsString(m_nullObject);
+			var actualValue = DatabaseExtensions.AsString(_nullObject);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1238,7 +1238,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const String expectedValue = "Given Default String";
 
 			// Act - Convert to String.
-			var actualValue = m_nullObject.AsString(expectedValue);
+			var actualValue = _nullObject.AsString(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1255,7 +1255,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const UInt16 expectedValue = default(UInt16);
 
 			// Act - Convert to UInt16.
-			var actualValue = m_dbNull.AsUInt16();
+			var actualValue = _dbNull.AsUInt16();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1268,7 +1268,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const UInt16 expectedValue = UInt16.MaxValue;
 
 			// Act - Convert to UInt16.
-			var actualValue = m_dbNull.AsUInt16(expectedValue);
+			var actualValue = _dbNull.AsUInt16(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1281,7 +1281,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const UInt16 expectedValue = default(UInt16);
 
 			// Act - Convert to UInt16.
-			var actualValue = m_nullObject.AsUInt16();
+			var actualValue = _nullObject.AsUInt16();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1294,7 +1294,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const UInt16 expectedValue = UInt16.MaxValue;
 
 			// Act - Convert to UInt16.
-			var actualValue = m_nullObject.AsUInt16(expectedValue);
+			var actualValue = _nullObject.AsUInt16(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1350,7 +1350,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const UInt32 expectedValue = default(UInt32);
 
 			// Act - Convert to UInt32.
-			var actualValue = m_dbNull.AsUInt32();
+			var actualValue = _dbNull.AsUInt32();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1363,7 +1363,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const UInt32 expectedValue = UInt32.MaxValue;
 
 			// Act - Convert to UInt32.
-			var actualValue = m_dbNull.AsUInt32(expectedValue);
+			var actualValue = _dbNull.AsUInt32(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1376,7 +1376,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const UInt32 expectedValue = default(UInt32);
 
 			// Act - Convert to UInt32.
-			var actualValue = m_nullObject.AsUInt32();
+			var actualValue = _nullObject.AsUInt32();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1389,7 +1389,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const UInt32 expectedValue = UInt32.MaxValue;
 
 			// Act - Convert to UInt32.
-			var actualValue = m_nullObject.AsUInt32(expectedValue);
+			var actualValue = _nullObject.AsUInt32(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1445,7 +1445,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const UInt64 expectedValue = default(UInt64);
 
 			// Act - Convert to UInt64.
-			var actualValue = m_dbNull.AsUInt64();
+			var actualValue = _dbNull.AsUInt64();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1458,7 +1458,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const UInt64 expectedValue = UInt64.MaxValue;
 
 			// Act - Convert to UInt64.
-			var actualValue = m_dbNull.AsUInt64(expectedValue);
+			var actualValue = _dbNull.AsUInt64(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1471,7 +1471,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const UInt64 expectedValue = default(UInt64);
 
 			// Act - Convert to UInt64.
-			var actualValue = m_nullObject.AsUInt64();
+			var actualValue = _nullObject.AsUInt64();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1484,7 +1484,7 @@ namespace ZionSoftware.Data.Tests.NUnit
 			const UInt64 expectedValue = UInt64.MaxValue;
 
 			// Act - Convert to UInt64.
-			var actualValue = m_nullObject.AsUInt64(expectedValue);
+			var actualValue = _nullObject.AsUInt64(expectedValue);
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
