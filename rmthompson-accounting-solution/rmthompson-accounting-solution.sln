@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF4A7364-5043-4A5A-9243-8A8FBBB49CC0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{827BB585-8447-4BC6-8DAB-1A0A94E83109}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{21061FA2-7825-4B7C-B46E-D9C0678934A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Databases", "6. Databases", "{668AF3DF-C5BB-42E1-A21B-6A55B856124F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Data Layer", "5. Data Layer", "{15E7A33E-9B5D-436D-8F10-BBEB2F1BBF23}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Business Layer", "4. Business Layer", "{5769CA36-130E-4B8F-9F34-EBA27D8FD51E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Service Layer", "3. Service Layer", "{5126C982-78AD-4C35-9DBB-59577B564040}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Hosting Layer", "2. Hosting Layer", "{8A2BAE06-4C34-4727-9FCD-1718F45471FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation Layer", "1. Presentation Layer", "{A906CED3-52A2-45BC-BD28-A33206922F7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZionSoftware.Solutions.Data", "ZionSoftware.Data\ZionSoftware.Solutions.Data.csproj", "{C07749F0-94E2-4DB3-B1DD-5CB91BB9B600}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C07749F0-94E2-4DB3-B1DD-5CB91BB9B600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C07749F0-94E2-4DB3-B1DD-5CB91BB9B600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C07749F0-94E2-4DB3-B1DD-5CB91BB9B600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C07749F0-94E2-4DB3-B1DD-5CB91BB9B600}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C07749F0-94E2-4DB3-B1DD-5CB91BB9B600} = {21061FA2-7825-4B7C-B46E-D9C0678934A8}
+	EndGlobalSection
+EndGlobal
