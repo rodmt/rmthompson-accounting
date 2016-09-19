@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation Layer", "1.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZionSoftware.Solutions.Data", "ZionSoftware.Data\ZionSoftware.Solutions.Data.csproj", "{C07749F0-94E2-4DB3-B1DD-5CB91BB9B600}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZionSoftware.Solutions.Data.Tests.NUnit", "ZionSoftware.Solutions.Data.Tests.NUnit\ZionSoftware.Solutions.Data.Tests.NUnit.csproj", "{F60B2810-00A4-4173-A295-4F75E5BAC2B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,11 +35,16 @@ Global
 		{C07749F0-94E2-4DB3-B1DD-5CB91BB9B600}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C07749F0-94E2-4DB3-B1DD-5CB91BB9B600}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C07749F0-94E2-4DB3-B1DD-5CB91BB9B600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F60B2810-00A4-4173-A295-4F75E5BAC2B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F60B2810-00A4-4173-A295-4F75E5BAC2B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F60B2810-00A4-4173-A295-4F75E5BAC2B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F60B2810-00A4-4173-A295-4F75E5BAC2B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C07749F0-94E2-4DB3-B1DD-5CB91BB9B600} = {21061FA2-7825-4B7C-B46E-D9C0678934A8}
+		{F60B2810-00A4-4173-A295-4F75E5BAC2B1} = {827BB585-8447-4BC6-8DAB-1A0A94E83109}
 	EndGlobalSection
 EndGlobal

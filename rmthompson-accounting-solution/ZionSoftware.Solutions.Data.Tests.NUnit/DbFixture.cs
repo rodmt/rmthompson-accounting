@@ -1,0 +1,241 @@
+﻿/***************************************************************************
+**
+**      Auth:   Rodrigues M. Thompson
+**
+**      Name:   Db Test Fixture
+**
+**      Date:   2013 June 05
+**
+**      Desc:   Test fixture for the Db Class.
+**
+** Copyright © 2016 Zion Software Solutions, LLC. All Rights Reserved.
+**
+** Unpublished copyright. This material contains proprietary information
+** that shall be used or copied only within Zion Software Solutions, 
+** except with written permission of Zion Software Solutions.		
+**              
+****************************************************************************
+**  Change History
+****************************************************************************
+**
+** $Author$
+** $DateTime$
+** $Change$
+** $Revision$
+** $HeadURL$
+**
+***************************************************************************/
+
+using System;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using NUnit.Framework;
+using Zion.Solutions.Data;
+using ZionSoftware.Data.Tests.NUnit.TestSupport;
+
+namespace ZionSoftware.Data.Tests.NUnit
+{
+	[TestFixture]
+	public class DbFixture
+	{
+		private Database m_database;
+
+		[SetUp]
+		public void Setup()
+		{
+			var connectionStringName = ConfigurationManager.AppSettings.Get("ConnectionStringName");
+			var connectionData = ConfigurationManager.ConnectionStrings[connectionStringName];
+			m_database = new TestDatabase(connectionData.ConnectionString, SqlClientFactory.Instance);
+		}
+
+		[Test]
+		public void ADbReadShouldTransformDataRowsToSingleObject()
+		{
+			// Arrange
+			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
+			IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
+			m_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
+			m_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
+
+			// Act
+			var dataSet = m_database.ExecuteDataSet(dbCommand);
+			var products = Db.Read(dataSet.Tables[0].AsEnumerable(), DataRowMake).ToList();
+
+			// Assert
+			Assert.That(products, Is.Not.Null);
+			Assert.That(products.Count(), Is.EqualTo(1));
+		}
+
+		[Test]
+		public void ADbReadShouldTransformDataRowsToObjectCollection()
+		{
+			// Arrange
+			const String sqlText = "select * from [Northwind].[dbo].[Products];";
+			IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
+
+			// Act
+			var dataSet = m_database.ExecuteDataSet(dbCommand);
+			var products = Db.Read(dataSet.Tables[0].AsEnumerable(), DataRowMake).ToList();
+
+			// Assert
+			Assert.That(products, Is.Not.Null);
+			Assert.That(products.Count(), Is.EqualTo(77));
+		}
+
+		[Test]
+		public void ADbReadShouldTransformDataRecordToSingleObject()
+		{
+			// Arrange
+			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
+			IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
+			m_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
+			m_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
+			Product product = null;
+			IDataReader dataReader = null;
+
+			// Act
+			try
+			{
+				dataReader = m_database.ExecuteReader(dbCommand, CommandBehavior.SingleRow);
+				product = Db.Read(dataReader, DataRecordMake, true);
+			}
+			finally
+			{
+				dataReader?.Close();
+				dataReader?.Dispose();
+			}
+
+			// Assert
+			Assert.That(product, Is.Not.Null);
+		}
+
+		[Test]
+		public void ADbReadShouldTransformDataRecordToDefaultObject()
+		{
+			// Arrange
+			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
+			IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
+			m_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 11111);
+			m_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang2");
+			Product product;
+			IDataReader dataReader = null;
+
+			// Act
+			try
+			{
+				dataReader = m_database.ExecuteReader(dbCommand, CommandBehavior.SingleRow);
+				product = Db.Read(dataReader, DataRecordMake, true);
+			}
+			finally
+			{
+				dataReader?.Close();
+				dataReader?.Dispose();
+			}
+
+			// Assert
+			Assert.That(product, Is.EqualTo(default(Product)));
+		}
+
+		[Test]
+		public void ADbReadShouldTransformDataRecordTosToObjectCollection()
+		{
+			// Arrange
+			const String sqlText = "select * from [Northwind].[dbo].[Products];";
+			IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
+
+			// Act
+			var products = Db.Read(m_database.ExecuteReader(dbCommand), DataRecordMake).ToList();
+
+			// Assert
+			Assert.That(products, Is.Not.Null);
+			Assert.That(products.Count(), Is.EqualTo(77));
+		}
+
+		[Test]
+		public void ADbReadWithNullDbRecordShouldReturnDefaultObject()
+		{
+			// Arrange
+			// Act
+			var product = Db.Read(null, DataRecordMake, true);
+
+			// Assert
+			Assert.That(product, Is.EqualTo(default(Product)));
+		}
+
+		[Test]
+		public void ADbReadWithClosedDbRecordShouldReturnDefaultObject()
+		{
+			// Arrange
+			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
+			IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
+			m_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
+			m_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
+			Product product = null;
+			IDataReader dataReader = null;
+
+			// Act
+			try
+			{
+				dataReader = m_database.ExecuteReader(dbCommand, CommandBehavior.SingleRow | CommandBehavior.CloseConnection);
+				dataReader.Close();
+				product = Db.Read(dataReader, DataRecordMake, true);
+			}
+			finally
+			{
+				dataReader?.Close();
+				dataReader?.Dispose();
+			}
+
+			// Assert
+			Assert.That(product, Is.EqualTo(default(Product)));
+		}
+
+		protected class Product
+		{
+			public Int32 Id { get; set; }
+			public String Name { get; set; }
+			public Int32 SupplierId { get; set; }
+			public Int32 CategoryId { get; set; }
+			public String QuantityPerUnit { get; set; }
+			public Decimal UnitPrice { get; set; }
+			public Int16 UnitsInStock { get; set; }
+			public Int16 UnitsOnOrder { get; set; }
+			public Int16 ReorderLevel { get; set; }
+			public Boolean Discontinued { get; set; }
+		}
+
+		// Makes a user business object from a data row.
+		private static readonly Func<DataRow, Product> DataRowMake =
+			dataRow => new Product()
+			{
+				Id = dataRow["ProductId"].AsInt32(),
+				Name = DatabaseExtensions.AsString(dataRow["ProductName"]),
+				SupplierId = dataRow["SupplierId"].AsInt32(),
+				CategoryId = dataRow["CategoryId"].AsInt32(),
+				QuantityPerUnit = DatabaseExtensions.AsString(dataRow["QuantityPerUnit"]),
+				UnitPrice = dataRow["UnitPrice"].AsDecimal(),
+				UnitsInStock = dataRow["UnitsInStock"].AsInt16(),
+				UnitsOnOrder = dataRow["UnitsOnOrder"].AsInt16(),
+				ReorderLevel = dataRow["ReorderLevel"].AsInt16(),
+				Discontinued = dataRow["Discontinued"].AsBoolean()
+			};
+
+		// Makes a user business object from a data record.
+		private static readonly Func<IDataRecord, Product> DataRecordMake =
+			dataRecord => new Product()
+			{
+				Id = dataRecord["ProductId"].AsInt32(),
+				Name = DatabaseExtensions.AsString(dataRecord["ProductName"]),
+				SupplierId = dataRecord["SupplierId"].AsInt32(),
+				CategoryId = dataRecord["CategoryId"].AsInt32(),
+				QuantityPerUnit = DatabaseExtensions.AsString(dataRecord["QuantityPerUnit"]),
+				UnitPrice = dataRecord["UnitPrice"].AsDecimal(),
+				UnitsInStock = dataRecord["UnitsInStock"].AsInt16(),
+				UnitsOnOrder = dataRecord["UnitsOnOrder"].AsInt16(),
+				ReorderLevel = dataRecord["ReorderLevel"].AsInt16(),
+				Discontinued = dataRecord["Discontinued"].AsBoolean()
+			};
+	}
+}
