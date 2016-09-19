@@ -71,7 +71,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZionSoftware.Data\ZionSoftware.Solutions.Data.csproj">
       <Project>{c07749f0-94e2-4db3-b1dd-5cb91bb9b600}</Project>
