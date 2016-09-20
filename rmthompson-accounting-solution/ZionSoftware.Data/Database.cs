@@ -8,7 +8,7 @@
 **
 **		Desc:	Handles the low-level access to the database.
 **
-** Copyright ©  , LLC. All Rights Reserved.
+** Copyright © 2016 Zion Software Solutions, LLC. All Rights Reserved.
 **
 ** Unpublished copyright. This material contains proprietary information
 ** that shall be used or copied only within Zion Software Solutions, 
@@ -56,7 +56,7 @@ namespace ZionSoftware.Solutions.Data
             if (connectionStringBuilder == null)
                 throw new ArgumentNullException(nameof(connectionStringBuilder));
             if (commandTimeout < 0)
-                throw new ArgumentException(ZionSoftware.Solutions.Data.Properties.Resources.ExceptionValueLessThanZero, nameof(commandTimeout));
+                throw new ArgumentException(Resources.ExceptionValueLessThanZero, nameof(commandTimeout));
 
             // Set the local parameters.
             _dbProvider = dbProvider;
