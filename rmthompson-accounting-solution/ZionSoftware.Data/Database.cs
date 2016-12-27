@@ -21,6 +21,7 @@ using System.Data;
 using System.Data.Common;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using ZionSoftware.Solutions.Data.Properties;
 
 namespace ZionSoftware.Solutions.Data
@@ -717,6 +718,24 @@ namespace ZionSoftware.Solutions.Data
 
             // Open the connection.
             dbConnection.Open();
+            return dbConnection;
+        }
+
+        /// <summary>
+        /// Gets a new and open <see cref="IDbConnection"/> instance.
+        /// </summary>
+        /// <returns>A <see cref="IDbConnection"/> instance.</returns>
+        public virtual IDbConnection GetNewOpenConnectionAsync()
+        {
+            // Get a new connection.
+            var dbConnection = CreateConnection();
+
+            // Validate the connection.
+            if (dbConnection == null)
+                throw new InvalidOperationException();
+
+            // Open the connection.
+            (dbConnection as DbConnection).OpenAsync();
             return dbConnection;
         }
 
