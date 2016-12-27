@@ -22,22 +22,21 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using NUnit.Framework;
-using ZionSoftware.Solutions.Data;
-using ZionSoftware.Data.Tests.NUnit.TestSupport;
+using ZionSoftware.Solutions.Data.Tests.NUnit.TestSupport;
 
-namespace ZionSoftware.Data.Tests.NUnit
+namespace ZionSoftware.Solutions.Data.Tests.NUnit
 {
 	[TestFixture]
 	public class DbFixture
 	{
-		private Database m_database;
+		private Database _database;
 
 		[SetUp]
 		public void Setup()
 		{
 			var connectionStringName = ConfigurationManager.AppSettings.Get("ConnectionStringName");
 			var connectionData = ConfigurationManager.ConnectionStrings[connectionStringName];
-			m_database = new TestDatabase(connectionData.ConnectionString, SqlClientFactory.Instance);
+			_database = new TestDatabase(connectionData.ConnectionString, SqlClientFactory.Instance);
 		}
 
 		[Test]
@@ -45,12 +44,12 @@ namespace ZionSoftware.Data.Tests.NUnit
 		{
 			// Arrange
 			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
-			IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
-			m_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
-			m_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
+			IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
+			_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
+			_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
 
 			// Act
-			var dataSet = m_database.ExecuteDataSet(dbCommand);
+			var dataSet = _database.ExecuteDataSet(dbCommand);
 			var products = Db.Read(dataSet.Tables[0].AsEnumerable(), DataRowMake).ToList();
 
 			// Assert
@@ -63,10 +62,10 @@ namespace ZionSoftware.Data.Tests.NUnit
 		{
 			// Arrange
 			const String sqlText = "select * from [Northwind].[dbo].[Products];";
-			IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
+			IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
 
 			// Act
-			var dataSet = m_database.ExecuteDataSet(dbCommand);
+			var dataSet = _database.ExecuteDataSet(dbCommand);
 			var products = Db.Read(dataSet.Tables[0].AsEnumerable(), DataRowMake).ToList();
 
 			// Assert
@@ -79,16 +78,16 @@ namespace ZionSoftware.Data.Tests.NUnit
 		{
 			// Arrange
 			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
-			IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
-			m_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
-			m_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
+			IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
+			_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
+			_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
 			Product product = null;
 			IDataReader dataReader = null;
 
 			// Act
 			try
 			{
-				dataReader = m_database.ExecuteReader(dbCommand, CommandBehavior.SingleRow);
+				dataReader = _database.ExecuteReader(dbCommand, CommandBehavior.SingleRow);
 				product = Db.Read(dataReader, DataRecordMake, true);
 			}
 			finally
@@ -106,16 +105,16 @@ namespace ZionSoftware.Data.Tests.NUnit
 		{
 			// Arrange
 			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
-			IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
-			m_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 11111);
-			m_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang2");
+			IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
+			_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 11111);
+			_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang2");
 			Product product;
 			IDataReader dataReader = null;
 
 			// Act
 			try
 			{
-				dataReader = m_database.ExecuteReader(dbCommand, CommandBehavior.SingleRow);
+				dataReader = _database.ExecuteReader(dbCommand, CommandBehavior.SingleRow);
 				product = Db.Read(dataReader, DataRecordMake, true);
 			}
 			finally
@@ -133,10 +132,10 @@ namespace ZionSoftware.Data.Tests.NUnit
 		{
 			// Arrange
 			const String sqlText = "select * from [Northwind].[dbo].[Products];";
-			IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
+			IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
 
 			// Act
-			var products = Db.Read(m_database.ExecuteReader(dbCommand), DataRecordMake).ToList();
+			var products = Db.Read(_database.ExecuteReader(dbCommand), DataRecordMake).ToList();
 
 			// Assert
 			Assert.That(products, Is.Not.Null);
@@ -159,16 +158,16 @@ namespace ZionSoftware.Data.Tests.NUnit
 		{
 			// Arrange
 			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
-			IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
-			m_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
-			m_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
+			IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
+			_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
+			_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
 			Product product = null;
 			IDataReader dataReader = null;
 
 			// Act
 			try
 			{
-				dataReader = m_database.ExecuteReader(dbCommand, CommandBehavior.SingleRow | CommandBehavior.CloseConnection);
+				dataReader = _database.ExecuteReader(dbCommand, CommandBehavior.SingleRow | CommandBehavior.CloseConnection);
 				dataReader.Close();
 				product = Db.Read(dataReader, DataRecordMake, true);
 			}

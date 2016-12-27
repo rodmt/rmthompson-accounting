@@ -21,22 +21,21 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using NUnit.Framework;
-using ZionSoftware.Data.Tests.NUnit.TestSupport;
-using ZionSoftware.Solutions.Data;
+using ZionSoftware.Solutions.Data.Tests.NUnit.TestSupport;
 
-namespace ZionSoftware.Data.Tests.NUnit
+namespace ZionSoftware.Solutions.Data.Tests.NUnit
 {
     [TestFixture]
     public class DatabaseExecuteNonQueryFixture
     {
-        private Database m_database;
+        private Database _database;
 
         [SetUp]
         public void Setup()
         {
             var connectionStringName = ConfigurationManager.AppSettings.Get("ConnectionStringName");
             var connectionData = ConfigurationManager.ConnectionStrings[connectionStringName];
-            m_database = new TestDatabase(connectionData.ConnectionString, SqlClientFactory.Instance);
+            _database = new TestDatabase(connectionData.ConnectionString, SqlClientFactory.Instance);
         }
 
         [Test]
@@ -44,9 +43,9 @@ namespace ZionSoftware.Data.Tests.NUnit
         {
             // Arrange
             const String sqlText = "insert [Northwind].[dbo].[Region]( [RegionId], [RegionDescription] ) values ( @param1, @param2 );";
-            IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
-            m_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 7);
-            m_database.AddInParameter(dbCommand, "@param2", DbType.String, "TestRegion");
+            IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
+            _database.AddInParameter(dbCommand, "@param1", DbType.Int32, 7);
+            _database.AddInParameter(dbCommand, "@param2", DbType.String, "TestRegion");
             int rowsAffected;
             IDbConnection dbConnection = null;
             IDbTransaction dbTransaction = null;
@@ -54,10 +53,10 @@ namespace ZionSoftware.Data.Tests.NUnit
             try
             {
                 // Act
-                dbConnection = m_database.CreateConnection();
+                dbConnection = _database.CreateConnection();
                 dbConnection.Open();
                 dbTransaction = dbConnection.BeginTransaction(IsolationLevel.ReadCommitted);
-                rowsAffected = m_database.ExecuteNonQuery(dbCommand, dbTransaction);
+                rowsAffected = _database.ExecuteNonQuery(dbCommand, dbTransaction);
             }
             finally
             {

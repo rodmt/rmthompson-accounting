@@ -23,7 +23,7 @@ using System.Data.SqlClient;
 using NUnit.Framework;
 using ZionSoftware.Solutions.Data.AdoNet.SqlServer;
 
-namespace ZionSoftware.Data.Tests.NUnit.Sql
+namespace ZionSoftware.Solutions.Data.Tests.NUnit.Sql
 {
     [TestFixture]
 	public class SqlDatabaseParameterizedSqlTextFixture

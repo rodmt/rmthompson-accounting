@@ -17,9 +17,8 @@
 ***************************************************************************/
 
 using System;
-using ZionSoftware.Solutions.Data;
 
-namespace ZionSoftware.Data.Tests.NUnit.TestSupport
+namespace ZionSoftware.Solutions.Data.Tests.NUnit.TestSupport
 {
     internal class TestDataTableBuilder : DataTableBuilder
 	{

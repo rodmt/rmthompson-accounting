@@ -21,7 +21,6 @@ using System.Data;
 using System.Data.Common;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading;
 using ZionSoftware.Solutions.Data.Properties;
 
 namespace ZionSoftware.Solutions.Data
@@ -31,37 +30,28 @@ namespace ZionSoftware.Solutions.Data
     /// </summary>
     public abstract class Database
     {
-        // Database factory instance.
         private readonly DbProviderFactory _dbProvider;
-        // Connection string and timeout
         private readonly DbConnectionStringBuilder _connectionStringBuilder;
-        //private readonly String m_connectionString;
         private readonly Int32 _commandTimeout;
 
         /// <summary>
-        /// Default constructor.
+        /// Initializes a new <see cref="Database"/> instance with a <see cref="DbProviderFactory"/>, <see cref="DbConnectionStringBuilder"/>, and command timeout.
         /// </summary>
         /// <param name="dbProvider">A <see cref="DbProviderFactory"/></param>
         /// <param name="connectionStringBuilder">A <see cref="DbConnectionStringBuilder"/>.</param>
         /// <param name="commandTimeout">The timeout value for a <see cref="IDbCommand"/>.</param>
         protected Database(DbProviderFactory dbProvider,
-                          // String connectionString,
                            DbConnectionStringBuilder connectionStringBuilder,
                            Int32 commandTimeout = 30)
         {
-            // Validate the argument(s)
             if (dbProvider == null)
                 throw new ArgumentNullException(nameof(dbProvider));
-            //if (String.IsNullOrEmpty(connectionString))
-            //    throw new ArgumentException(Resources.ExceptionNullOrEmptyString, "connectionString");
             if (connectionStringBuilder == null)
                 throw new ArgumentNullException(nameof(connectionStringBuilder));
             if (commandTimeout < 0)
                 throw new ArgumentException(Resources.ExceptionValueLessThanZero, nameof(commandTimeout));
 
-            // Set the local parameters.
             _dbProvider = dbProvider;
-            //m_connectionString = connectionString;
             _connectionStringBuilder = connectionStringBuilder;
             _commandTimeout = commandTimeout;
         }
@@ -111,14 +101,14 @@ namespace ZionSoftware.Solutions.Data
                 throw new ArgumentException(Resources.ExceptionNullOrEmptyString, nameof(commandText));
 
             // Assert.
-            Debug.Assert(_dbProvider != null, "m_dbProvider != null");
+            Debug.Assert(_dbProvider != null, "_dbProvider != null");
 
             // Create the command.
             var command = _dbProvider.CreateCommand();
 
             // Assert
             Debug.Assert(command != null, "command != null");
-            Debug.Assert(_commandTimeout >= 0, "m_commandTimeout >= 0");
+            Debug.Assert(_commandTimeout >= 0, "_commandTimeout >= 0");
 
             // Set the properties.
             command.CommandType = commandType;
@@ -635,7 +625,7 @@ namespace ZionSoftware.Solutions.Data
             if (dbCommand == null) throw new ArgumentNullException(nameof(dbCommand));
 
             // Assert.
-            Debug.Assert(_dbProvider != null, "m_dbProvider != null");
+            Debug.Assert(_dbProvider != null, "_dbProvider != null");
 
             // Create the data adapter.
             using (DataAdapter dataAdapter = _dbProvider.CreateDataAdapter())
@@ -753,7 +743,7 @@ namespace ZionSoftware.Solutions.Data
                 return null;
 
             // Set the properties.
-            newConnection.ConnectionString = _connectionStringBuilder.ConnectionString; //m_connectionString;
+            newConnection.ConnectionString = _connectionStringBuilder.ConnectionString; //_connectionString;
             return newConnection;
         }
     }

@@ -21,22 +21,21 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using NUnit.Framework;
-using ZionSoftware.Data.Tests.NUnit.TestSupport;
-using ZionSoftware.Solutions.Data;
+using ZionSoftware.Solutions.Data.Tests.NUnit.TestSupport;
 
-namespace ZionSoftware.Data.Tests.NUnit
+namespace ZionSoftware.Solutions.Data.Tests.NUnit
 {
     [TestFixture]
 	public class DatabaseParameterizedSqlTextFixture
 	{
-		private Database m_database;
+		private Database _database;
 
 		[SetUp]
 		public void Setup()
 		{
 			var connectionStringName = ConfigurationManager.AppSettings.Get("ConnectionStringName");
 			var connectionData = ConfigurationManager.ConnectionStrings[connectionStringName];
-			m_database = new TestDatabase(connectionData.ConnectionString, SqlClientFactory.Instance);
+			_database = new TestDatabase(connectionData.ConnectionString, SqlClientFactory.Instance);
 		}
 
 		[Test]
@@ -44,12 +43,12 @@ namespace ZionSoftware.Data.Tests.NUnit
 		{
 			// Arrange
 			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
-			IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
-			m_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
-			m_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
+			IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
+			_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
+			_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
 
 			// Act
-			var dataSet = m_database.ExecuteDataSet(dbCommand);
+			var dataSet = _database.ExecuteDataSet(dbCommand);
 
 			// Assert
 			Assert.That(1, Is.EqualTo(dataSet.Tables[0].Rows.Count));
@@ -61,12 +60,12 @@ namespace ZionSoftware.Data.Tests.NUnit
 		{
 			// Arrange
 			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
-			IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
-			m_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
+			IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
+			_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
 
             // Act
             // Assert
-            Assert.That(() => m_database.ExecuteDataSet(dbCommand), Throws.TypeOf<SqlException>());
+            Assert.That(() => _database.ExecuteDataSet(dbCommand), Throws.TypeOf<SqlException>());
 		}
 
 		[Test]
@@ -75,14 +74,14 @@ namespace ZionSoftware.Data.Tests.NUnit
 		{
 			// Arrange
 			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
-			IDbCommand dbCommand = m_database.GetSqlTextCommand(sqlText);
-			m_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
-			m_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
-			m_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang2");
+			IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
+			_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
+			_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
+			_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang2");
 
             // Act
             // Assert
-            Assert.That(() => m_database.ExecuteDataSet(dbCommand), Throws.TypeOf<SqlException>());
+            Assert.That(() => _database.ExecuteDataSet(dbCommand), Throws.TypeOf<SqlException>());
         }
 	}
 }

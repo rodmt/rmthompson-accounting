@@ -19,9 +19,8 @@
 using System;
 using System.Globalization;
 using NUnit.Framework;
-using ZionSoftware.Solutions.Data;
 
-namespace ZionSoftware.Data.Tests.NUnit
+namespace ZionSoftware.Solutions.Data.Tests.NUnit
 {
     [TestFixture]
 	public class DatabaseExtensionsFixture

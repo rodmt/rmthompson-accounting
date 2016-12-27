@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Data.Common;
-using ZionSoftware.Solutions.Data;
-using ZionSoftware.Solutions.Data.Properties;
+using ZionSoftware.Solutions.Data.Tests.NUnit.Properties;
 
-namespace ZionSoftware.Data.Tests.NUnit.TestSupport
+namespace ZionSoftware.Solutions.Data.Tests.NUnit.TestSupport
 {
     public class TestDatabase : Database
     {

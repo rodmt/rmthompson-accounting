@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ZionSoftware.Solutions.Data.Properties {
+namespace ZionSoftware.Solutions.Data.Tests.NUnit.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ZionSoftware.Solutions.Data.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ZionSoftware.Solutions.Data.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ZionSoftware.Solutions.Data.Tests.NUnit.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

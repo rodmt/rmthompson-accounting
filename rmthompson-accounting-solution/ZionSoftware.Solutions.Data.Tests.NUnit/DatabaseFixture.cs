@@ -20,9 +20,9 @@ using System;
 using System.Configuration;
 using System.Data.Common;
 using NUnit.Framework;
-using ZionSoftware.Data.Tests.NUnit.TestSupport;
+using ZionSoftware.Solutions.Data.Tests.NUnit.TestSupport;
 
-namespace ZionSoftware.Data.Tests.NUnit
+namespace ZionSoftware.Solutions.Data.Tests.NUnit
 {
     [TestFixture]
     public class DatabaseFixture
