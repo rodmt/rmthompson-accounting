@@ -8,7 +8,7 @@
 **
 **      Desc:   Implements additional functionality for the database class.
 **
-** Copyright © 2016 Zion Software Solutions, LLC. All Rights Reserved.
+** Copyright © 2018 Zion Software Solutions, LLC. All Rights Reserved.
 **
 ** Unpublished copyright. This material contains proprietary information
 ** that shall be used or copied only within Zion Software Solutions, 

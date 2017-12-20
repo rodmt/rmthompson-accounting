@@ -236,11 +236,9 @@ namespace ZionSoftware.Solutions.Data.AdoNet.SqlServer
                                                   byte precision = 0,
                                                   byte scale = 0)
         {
-            // Validate the argument(s)
             if (parameter == null)
                 throw new ArgumentNullException(nameof(parameter));
 
-            // Set the properties.
             parameter.SqlDbType = dbType;
             parameter.Direction = parameterDirection;
             parameter.IsNullable = isNullable;
