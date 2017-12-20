@@ -26,7 +26,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 	public class DataTableBuilderFixture
 	{
 		// Internal const(s)
-	    private const String _DataTableName = "dataTableName";
+	    private const string _DataTableName = "dataTableName";
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreateDataTable()
@@ -59,7 +59,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: tableName")]
 		public void ADataTableBuilderConstuctWithEmptyStringTableNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
@@ -95,7 +95,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void AByteNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateByteNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateByteNullColumn(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
@@ -109,14 +109,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void AByteNotNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateByteNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateByteNullColumn(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddByteNullColumn()
 		{
 			// Arrange - Create a new test data table builder instance.
-			const String columnName = "byte_null_column";
+			const string columnName = "byte_null_column";
 			TestDataTableBuilder testDataTableBuilder = null;
 
 			try
@@ -129,7 +129,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 				// Assert
 				Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 				Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-				Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Byte)));
+				Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(byte)));
 				Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.True);
 			}
 			finally
@@ -142,7 +142,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddByteNotNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "byte_not_null_column";
+			const string columnName = "byte_not_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -152,7 +152,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Byte)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(byte)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.False);
 		}
 
@@ -167,14 +167,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void ABooleanNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateBooleanNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateBooleanNullColumn(string.Empty), Throws.ArgumentException);
         }
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddBooleanNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "boolean_null_column";
+			const string columnName = "boolean_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -184,7 +184,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Boolean)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(bool)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.True);
 		}
 
@@ -199,14 +199,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void ABooleanNotNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateBooleanNotNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateBooleanNotNullColumn(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddBooleanNotNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "boolean_not_null_column";
+			const string columnName = "boolean_not_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -216,7 +216,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Boolean)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(bool)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.False);
 		}
 
@@ -231,14 +231,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void ADateTimeNotNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateDateTimeNotNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateDateTimeNotNullColumn(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddDateTimeNotNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "date_time_not_null_column";
+			const string columnName = "date_time_not_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -263,14 +263,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void ADateTimeNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateDateTimeNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateDateTimeNullColumn(string.Empty), Throws.ArgumentException);
         }
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddDateTimeNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "date_time_null_column";
+			const string columnName = "date_time_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -295,14 +295,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void ADoubleNotNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateDoubleNotNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateDoubleNotNullColumn(string.Empty), Throws.ArgumentException);
         }
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddDoubleNotNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "double_not_null_column";
+			const string columnName = "double_not_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -312,7 +312,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Double)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(double)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.False);
 		}
 
@@ -327,14 +327,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void ADoubleNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateDoubleNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateDoubleNullColumn(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddDoubleNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "double_null_column";
+			const string columnName = "double_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -344,7 +344,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Double)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(double)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.True);
 		}
 
@@ -359,14 +359,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void AGuidNotNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateGuidNotNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateGuidNotNullColumn(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddGuidNotNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "guid_not_null_column";
+			const string columnName = "guid_not_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -391,14 +391,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void AGuidNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateGuidNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateGuidNullColumn(string.Empty), Throws.ArgumentException);
         }
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddGuidNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "guid_null_column";
+			const string columnName = "guid_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -423,14 +423,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void AInt16NullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateInt16NullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateInt16NullColumn(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddInt16NullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "int16_null_column";
+			const string columnName = "int16_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -440,7 +440,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Int16)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(short)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.True);
 		}
 
@@ -455,14 +455,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void AInt16NotNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateInt16NotNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateInt16NotNullColumn(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddInt16NotNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "int16_not_null_column";
+			const string columnName = "int16_not_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -472,7 +472,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Int16)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(short)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.False);
 		}
 
@@ -487,14 +487,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void AInt32NullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateInt32NullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateInt32NullColumn(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddInt32NullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "int32_null_column";
+			const string columnName = "int32_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -504,7 +504,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Int32)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(int)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.True);
 		}
 
@@ -519,14 +519,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void AInt32NotNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateInt32NotNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateInt32NotNullColumn(string.Empty), Throws.ArgumentException);
         }
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddInt32NotNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "int32_not_null_column";
+			const string columnName = "int32_not_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -536,7 +536,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Int32)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(int)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.False);
 		}
 
@@ -551,14 +551,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void AInt64NullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateInt64NullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateInt64NullColumn(string.Empty), Throws.ArgumentException);
         }
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddInt64NullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "int64_null_column";
+			const string columnName = "int64_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -568,7 +568,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Int64)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(long)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.True);
 		}
 
@@ -583,14 +583,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void AInt64NotNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateInt64NotNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateInt64NotNullColumn(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddInt64NotNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "int64_not_null_column";
+			const string columnName = "int64_not_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -600,7 +600,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Int64)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(long)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.False);
 		}
 
@@ -615,14 +615,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void ASingleNotNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateSingleNotNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateSingleNotNullColumn(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddSingleNotNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "single_not_null_column";
+			const string columnName = "single_not_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -632,7 +632,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Single)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(float)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.False);
 		}
 
@@ -640,19 +640,19 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADataTableBuilderConstructShouldCreateDataTableWithNameAndAddSingleNotNullColumnAndDefaultValue()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "single_not_null_column";
+			const string columnName = "single_not_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
 			// Act - Add byte not null column.
-			testDataTableBuilder.CreateSingleNotNullColumn(columnName, Single.Epsilon);
+			testDataTableBuilder.CreateSingleNotNullColumn(columnName, float.Epsilon);
 
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Single)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(float)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.False);
-			Assert.That(Single.Epsilon, Is.EqualTo(Convert.ToSingle(testDataTableBuilder.InternalDataTable.Columns[columnName].DefaultValue)));
+			Assert.That(float.Epsilon, Is.EqualTo(Convert.ToSingle(testDataTableBuilder.InternalDataTable.Columns[columnName].DefaultValue)));
 		}
 
 		[Test]
@@ -666,7 +666,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void ASingleNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateSingleNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateSingleNullColumn(string.Empty), Throws.ArgumentException);
         }
 
 		[Test]
@@ -680,7 +680,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADataTableBuilderConstructShouldCreateDataTableWithNameAndSingleNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "single_null_column";
+			const string columnName = "single_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -690,7 +690,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Single)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(float)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.True);
 		}
 
@@ -698,19 +698,19 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADataTableBuilderConstructShouldCreateDataTableWithNameAndSingleNullColumnAndDefaultValue()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "single_null_column";
+			const string columnName = "single_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
 			// Act - Add byte not null column.
-			testDataTableBuilder.CreateSingleNullColumn(columnName, Single.Epsilon);
+			testDataTableBuilder.CreateSingleNullColumn(columnName, float.Epsilon);
 
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(Single)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(float)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.True);
-			Assert.That(Single.Epsilon, Is.EqualTo(Convert.ToSingle(testDataTableBuilder.InternalDataTable.Columns[columnName].DefaultValue)));
+			Assert.That(float.Epsilon, Is.EqualTo(Convert.ToSingle(testDataTableBuilder.InternalDataTable.Columns[columnName].DefaultValue)));
 		}
 
 		[Test]
@@ -724,7 +724,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void AStringNotNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateStringNotNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateStringNotNullColumn(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
@@ -738,7 +738,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddStringNotNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "string_not_null_column";
+			const string columnName = "string_not_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -748,7 +748,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(String)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(string)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.False);
 		}
 
@@ -763,14 +763,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		//[ExpectedException(typeof(ArgumentException), ExpectedMessage = "The value must not be null or an empty string.\r\nParameter name: columnName")]
 		public void AStringNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateStringNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateStringNullColumn(string.Empty), Throws.ArgumentException);
         }
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddStringNullColumn()
 		{
 			// Arrange - Set the internal consts.
-			const String columnName = "string_null_column";
+			const string columnName = "string_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -780,7 +780,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(String)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(string)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.True);
 		}
 
@@ -799,14 +799,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AUInt16NullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		// ReSharper restore InconsistentNaming
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateUInt16NullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateUInt16NullColumn(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddUInt16NullColumn()
 		{
 			// Arrange - Set the UInternal consts.
-			const String columnName = "uint16_null_column";
+			const string columnName = "uint16_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -816,7 +816,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(UInt16)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(ushort)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.True);
 		}
 
@@ -835,14 +835,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AUInt16NotNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		// ReSharper restore InconsistentNaming
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateUInt16NotNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateUInt16NotNullColumn(string.Empty), Throws.ArgumentException);
         }
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddUInt16NotNullColumn()
 		{
 			// Arrange - Set the UInternal consts.
-			const String columnName = "uint16_not_null_column";
+			const string columnName = "uint16_not_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -852,7 +852,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(UInt16)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(ushort)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.False);
 		}
 
@@ -871,14 +871,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AUInt32NullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		// ReSharper restore InconsistentNaming
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateUInt32NullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateUInt32NullColumn(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddUInt32NullColumn()
 		{
 			// Arrange - Set the UInternal consts.
-			const String columnName = "uint32_null_column";
+			const string columnName = "uint32_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -888,7 +888,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(UInt32)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(uint)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.True);
 		}
 
@@ -907,14 +907,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AUInt32NotNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		// ReSharper restore InconsistentNaming
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateUInt32NotNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateUInt32NotNullColumn(string.Empty), Throws.ArgumentException);
         }
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddUInt32NotNullColumn()
 		{
 			// Arrange - Set the UInternal consts.
-			const String columnName = "uint32_not_null_column";
+			const string columnName = "uint32_not_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -924,7 +924,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(UInt32)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(uint)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.False);
 		}
 
@@ -943,14 +943,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AUInt64NullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		// ReSharper restore InconsistentNaming
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateUInt64NullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateUInt64NullColumn(string.Empty), Throws.ArgumentException);
 		}
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddUInt64NullColumn()
 		{
 			// Arrange - Set the UInternal consts.
-			const String columnName = "uint64_null_column";
+			const string columnName = "uint64_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -960,7 +960,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(UInt64)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(ulong)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.True);
 		}
 
@@ -979,14 +979,14 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AUInt64NotNullDataColumnWithEmptyStringNameShouldThrowWithSpecificMessage()
 		// ReSharper restore InconsistentNaming
 		{
-            Assert.That(() => new TestDataTableBuilder().CreateUInt64NotNullColumn(String.Empty), Throws.ArgumentException);
+            Assert.That(() => new TestDataTableBuilder().CreateUInt64NotNullColumn(string.Empty), Throws.ArgumentException);
         }
 
 		[Test]
 		public void ADataTableBuilderConstructShouldCreatesDataTableWithNameAndAddUInt64NotNullColumn()
 		{
 			// Arrange - Set the UInternal consts.
-			const String columnName = "uint64_not_null_column";
+			const string columnName = "uint64_not_null_column";
 			// Arrange - Create a new test data table builder instance.
 			var testDataTableBuilder = new TestDataTableBuilder(_DataTableName);
 
@@ -996,7 +996,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 			// Assert
 			Assert.That(_DataTableName, Is.EqualTo(testDataTableBuilder.InternalDataTable.TableName));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName], Is.Not.Null);
-			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(UInt64)));
+			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].DataType, Is.EqualTo(typeof(ulong)));
 			Assert.That(testDataTableBuilder.InternalDataTable.Columns[columnName].AllowDBNull, Is.False);
 		}
 	}

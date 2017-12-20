@@ -28,20 +28,19 @@ namespace ZionSoftware.Solutions.Data
 	public static class DatabaseExtensions
 	{
 		/// <summary>
-		/// Converts the object to a <see cref="Boolean"/>.
+		/// Converts the object to a <see cref="bool"/>.
 		/// </summary>
 		/// <param name="value">The value from the database.</param>
 		/// <param name="defaultValue">The default value.</param>
-		/// <returns>The value converted to <see cref="Boolean"/> or a default value.</returns>
-		public static Boolean AsBoolean(this Object value,
-										Boolean defaultValue = default(Boolean))
+		/// <returns>The value converted to <see cref="bool"/> or a default value.</returns>
+		public static bool AsBoolean(this object value,
+									 bool defaultValue = default(bool))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
 
-			Boolean result;
-			return !Boolean.TryParse(value.ToString(), out result) ? defaultValue : result;
-		}
+            return !bool.TryParse(value.ToString(), out var result) ? defaultValue : result;
+        }
 
 		/// <summary>
 		/// Converts the object to a <see cref="Byte"/>.
@@ -49,15 +48,14 @@ namespace ZionSoftware.Solutions.Data
 		/// <param name="value">The value from the database.</param>
 		/// <param name="defaultValue">The default value.</param>
 		/// <returns>The value converted to <see cref="Byte"/> or a default value.</returns>
-		public static Byte AsByte(this Object value,
-								  Byte defaultValue = default(Byte))
+		public static byte AsByte(this object value,
+								  byte defaultValue = default(byte))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
 
-			Byte result;
-			return !Byte.TryParse(value.ToString(), out result) ? defaultValue : result;
-		}
+            return !byte.TryParse(value.ToString(), out var result) ? defaultValue : result;
+        }
 
 		/// <summary>
 		/// Convert the object to an array <see cref="Byte"/>s.
@@ -65,8 +63,8 @@ namespace ZionSoftware.Solutions.Data
 		/// <param name="value">The value from the database.</param>
 		/// <param name="defaultValue">The default value.</param>
 		/// <returns>The value converted to <see cref="Byte"/> or a default value.</returns>
-		public static Byte[] AsBytes(this Object value,
-									 Byte[] defaultValue = default(Byte[]))
+		public static byte[] AsBytes(this object value,
+									 byte[] defaultValue = default(byte[]))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
@@ -97,31 +95,29 @@ namespace ZionSoftware.Solutions.Data
 		/// <param name="value">The value from the database.</param>
 		/// <param name="defaultValue">The default value.</param>
 		/// <returns>The value converted to <see cref="Char"/> or a default value.</returns>
-		public static Char AsChar(this Object value,
-								  Char defaultValue = default(Char))
+		public static char AsChar(this object value,
+								  char defaultValue = default(char))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
 
-			Char result;
-			return !Char.TryParse(value.ToString(), out result) ? defaultValue : result;
-		}
+            return !char.TryParse(value.ToString(), out var result) ? defaultValue : result;
+        }
 
 		/// <summary>
-		/// Converts the object to a <see cref="Decimal"/>.
+		/// Converts the object to a <see cref="decimal"/>.
 		/// </summary>
 		/// <param name="value">The value from the database.</param>
 		/// <param name="defaultValue">The default value.</param>
-		/// <returns>The value converted to <see cref="Decimal"/> or a default value.</returns>
-		public static Decimal AsDecimal(this Object value,
-										Decimal defaultValue = default(Decimal))
+		/// <returns>The value converted to <see cref="decimal"/> or a default value.</returns>
+		public static decimal AsDecimal(this object value,
+										decimal defaultValue = default(decimal))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
 
-			Decimal result;
-			return !Decimal.TryParse(value.ToString(), out result) ? defaultValue : result;
-		}
+            return !decimal.TryParse(value.ToString(), out var result) ? defaultValue : result;
+        }
 
 		/// <summary>
 		/// Converts the object to a <see cref="DateTime"/>.
@@ -129,15 +125,14 @@ namespace ZionSoftware.Solutions.Data
 		/// <param name="value">The value from the database.</param>
 		/// <param name="defaultValue">The default value.</param>
 		/// <returns>The value converted to <see cref="DateTime"/> or a default value.</returns>
-		public static DateTime AsDateTime(this Object value,
+		public static DateTime AsDateTime(this object value,
 										  DateTime defaultValue = default(DateTime))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
 
-			DateTime result;
-			return !DateTime.TryParse(value.ToString(), out result) ? defaultValue : result;
-		}
+            return !DateTime.TryParse(value.ToString(), out var result) ? defaultValue : result;
+        }
 
 		/// <summary>
 		/// Converts the object to a <see cref="Guid"/>.
@@ -145,156 +140,147 @@ namespace ZionSoftware.Solutions.Data
 		/// <param name="value">The value from the database.</param>
 		/// <param name="defaultValue">The default value.</param>
 		/// <returns>The value converted to <see cref="Guid"/> or a default value.</returns>
-		public static Guid AsGuid(this Object value,
+		public static Guid AsGuid(this object value,
 								  Guid defaultValue = default(Guid))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
 
-			Guid result;
-			return !Guid.TryParse(value.ToString(), out result) ? defaultValue : result;
-		}
+            return !Guid.TryParse(value.ToString(), out var result) ? defaultValue : result;
+        }
 
-		/// <summary>
-		/// Converts the object to a <see cref="Int16"/>.
-		/// </summary>
-		/// <param name="value">The value from the database.</param>
-		/// <param name="defaultValue">The default value.</param>
-		/// <returns>The value converted to <see cref="Int16"/> or a default value.</returns>
-		public static Int16 AsInt16(this Object value,
-									Int16 defaultValue = default(Int16))
+        /// <summary>
+        /// Converts the object to a <see cref="short"/>.
+        /// </summary>
+        /// <param name="value">The value from the database.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <returns>The value converted to <see cref="short"/> or a default value.</returns>
+        public static short AsInt16(this object value,
+									short defaultValue = default(short))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
 
-			Int16 result;
-			return !Int16.TryParse(value.ToString(), out result) ? defaultValue : result;
-		}
+            return !short.TryParse(value.ToString(), out var result) ? defaultValue : result;
+        }
 
-		/// <summary>
-		/// Converts the object to a <see cref="Int32"/>.
-		/// </summary>
-		/// <param name="value">The value from the database.</param>
-		/// <param name="defaultValue">The default value.</param>
-		/// <returns>The value converted to <see cref="Int32"/> or a default value.</returns>
-		public static Int32 AsInt32(this Object value,
-									Int32 defaultValue = default(Int32))
+        /// <summary>
+        /// Converts the object to a <see cref="int"/>.
+        /// </summary>
+        /// <param name="value">The value from the database.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <returns>The value converted to <see cref="int"/> or a default value.</returns>
+        public static int AsInt32(this object value,
+									int defaultValue = default(int))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
 
-			Int32 result;
-			return !Int32.TryParse(value.ToString(), out result) ? defaultValue : result;
+		    return !int.TryParse(value.ToString(), out var result) ? defaultValue : result;
 		}
 
-		/// <summary>
-		/// Converts the object to a <see cref="Int64"/>.
-		/// </summary>
-		/// <param name="value">The value from the database.</param>
-		/// <param name="defaultValue">The default value.</param>
-		/// <returns>The value converted to <see cref="Int64"/> or a default value.</returns>
-		public static Int64 AsInt64(this Object value,
-									Int64 defaultValue = default(Int64))
+        /// <summary>
+        /// Converts the object to a <see cref="long"/>.
+        /// </summary>
+        /// <param name="value">The value from the database.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <returns>The value converted to <see cref="long"/> or a default value.</returns>
+        public static long AsInt64(this object value,
+								   long defaultValue = default(long))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
 
-			Int64 result;
-			return !Int64.TryParse(value.ToString(), out result) ? defaultValue : result;
-		}
+            return !long.TryParse(value.ToString(), out var result) ? defaultValue : result;
+        }
 
-		/// <summary>
-		/// Converts the object to a <see cref="SByte"/>.
-		/// </summary>
-		/// <param name="value">The value from the database.</param>
-		/// <param name="defaultValue">The default value.</param>
-		/// <returns>The value converted to <see cref="SByte"/> or a default value.</returns>
-		public static SByte AsSByte(this Object value,
-									SByte defaultValue = default(SByte))
+        /// <summary>
+        /// Converts the object to a <see cref="sbyte"/>.
+        /// </summary>
+        /// <param name="value">The value from the database.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <returns>The value converted to <see cref="sbyte"/> or a default value.</returns>
+        public static sbyte AsSByte(this object value,
+									sbyte defaultValue = default(sbyte))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
 
-			SByte result;
-			return !SByte.TryParse(value.ToString(), out result) ? defaultValue : result;
-		}
+            return !sbyte.TryParse(value.ToString(), out var result) ? defaultValue : result;
+        }
 
-		/// <summary>
-		/// Converts the object to a <see cref="Single"/>.
-		/// </summary>
-		/// <param name="value">The value from the database.</param>
-		/// <param name="defaultValue">The default value.</param>
-		/// <returns>The value converted to <see cref="Single"/> or a default value.</returns>
-		public static Single AsSingle(this Object value,
-									  Single defaultValue = default(Single))
+        /// <summary>
+        /// Converts the object to a <see cref="float"/>.
+        /// </summary>
+        /// <param name="value">The value from the database.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <returns>The value converted to <see cref="float"/> or a default value.</returns>
+        public static float AsSingle(this object value,
+									 float defaultValue = default(float))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
 
-			Single result;
-			return !Single.TryParse(value.ToString(), out result) ? defaultValue : result;
-		}
+            return !float.TryParse(value.ToString(), out var result) ? defaultValue : result;
+        }
 
-		/// <summary>
-		/// Converts the object to a <see cref="String"/>.
-		/// </summary>
-		/// <param name="value">The value from the database.</param>
-		/// <param name="defaultValue">A default value.</param>
-		/// <returns>The value converted to <see cref="String"/> or a default value.</returns>
-		public static String AsString(this Object value,
-									  String defaultValue = default(String))
+        /// <summary>
+        /// Converts the object to a <see cref="string"/>.
+        /// </summary>
+        /// <param name="value">The value from the database.</param>
+        /// <param name="defaultValue">A default value.</param>
+        /// <returns>The value converted to <see cref="string"/> or a default value.</returns>
+        public static string AsString(this object value,
+									  string defaultValue = default(string))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
 			return value.ToString();
 		}
 
-		/// <summary>
-		/// Converts the object to a <see cref="UInt16"/>.
-		/// </summary>
-		/// <param name="value">The value from the database.</param>
-		/// <param name="defaultValue">The default value.</param>
-		/// <returns>The value converted to <see cref="UInt16"/> or a default value.</returns>
-		public static UInt16 AsUInt16(this Object value,
-									  UInt16 defaultValue = default(UInt16))
+        /// <summary>
+        /// Converts the object to a <see cref="ushort"/>.
+        /// </summary>
+        /// <param name="value">The value from the database.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <returns>The value converted to <see cref="ushort"/> or a default value.</returns>
+        public static ushort AsUInt16(this object value,
+									  ushort defaultValue = default(ushort))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
 
-			UInt16 result;
-			return !UInt16.TryParse(value.ToString(), out result) ? defaultValue : result;
-		}
+            return !ushort.TryParse(value.ToString(), out var result) ? defaultValue : result;
+        }
 
-		/// <summary>
-		/// Converts the object to a <see cref="UInt32"/>.
-		/// </summary>
-		/// <param name="value">The value from the database.</param>
-		/// <param name="defaultValue">The default value.</param>
-		/// <returns>The value converted to <see cref="UInt32"/> or a default value.</returns>
-		public static UInt32 AsUInt32(this Object value,
-									  UInt32 defaultValue = default(UInt32))
+        /// <summary>
+        /// Converts the object to a <see cref="uint"/>.
+        /// </summary>
+        /// <param name="value">The value from the database.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <returns>The value converted to <see cref="uint"/> or a default value.</returns>
+        public static uint AsUInt32(this object value,
+									uint defaultValue = default(uint))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
 
-			UInt32 result;
-			return !UInt32.TryParse(value.ToString(), out result) ? defaultValue : result;
-		}
+            return !uint.TryParse(value.ToString(), out var result) ? defaultValue : result;
+        }
 
-		/// <summary>
-		/// Converts the object to a <see cref="UInt64"/>.
-		/// </summary>
-		/// <param name="value">The value from the database.</param>
-		/// <param name="defaultValue">The default value.</param>
-		/// <returns>The value converted to <see cref="UInt64"/> or a default value.</returns>
-		public static UInt64 AsUInt64(this Object value,
-									  UInt64 defaultValue = default(UInt64))
+        /// <summary>
+        /// Converts the object to a <see cref="ulong"/>.
+        /// </summary>
+        /// <param name="value">The value from the database.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <returns>The value converted to <see cref="ulong"/> or a default value.</returns>
+        public static ulong AsUInt64(this object value,
+									 ulong defaultValue = default(ulong))
 		{
 			if (value == null || Convert.IsDBNull(value))
 				return defaultValue;
 
-			UInt64 result;
-			return !UInt64.TryParse(value.ToString(), out result) ? defaultValue : result;
-		}
+            return !ulong.TryParse(value.ToString(), out var result) ? defaultValue : result;
+        }
 	}
 }

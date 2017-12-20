@@ -43,7 +43,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbReadShouldTransformDataRowsToSingleObject()
 		{
 			// Arrange
-			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
+			const string sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
 			IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
 			_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
 			_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
@@ -61,7 +61,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbReadShouldTransformDataRowsToObjectCollection()
 		{
 			// Arrange
-			const String sqlText = "select * from [Northwind].[dbo].[Products];";
+			const string sqlText = "select * from [Northwind].[dbo].[Products];";
 			IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
 
 			// Act
@@ -77,7 +77,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbReadShouldTransformDataRecordToSingleObject()
 		{
 			// Arrange
-			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
+			const string sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
 			IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
 			_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
 			_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
@@ -104,7 +104,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbReadShouldTransformDataRecordToDefaultObject()
 		{
 			// Arrange
-			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
+			const string sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
 			IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
 			_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 11111);
 			_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang2");
@@ -131,7 +131,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbReadShouldTransformDataRecordTosToObjectCollection()
 		{
 			// Arrange
-			const String sqlText = "select * from [Northwind].[dbo].[Products];";
+			const string sqlText = "select * from [Northwind].[dbo].[Products];";
 			IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
 
 			// Act
@@ -157,7 +157,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbReadWithClosedDbRecordShouldReturnDefaultObject()
 		{
 			// Arrange
-			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
+			const string sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
 			IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
 			_database.AddInParameter(dbCommand, "@param1", DbType.Int32, 1);
 			_database.AddInParameter(dbCommand, "@param2", DbType.String, "Chang");
@@ -183,16 +183,16 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 
 		protected class Product
 		{
-			public Int32 Id { get; set; }
-			public String Name { get; set; }
-			public Int32 SupplierId { get; set; }
-			public Int32 CategoryId { get; set; }
-			public String QuantityPerUnit { get; set; }
-			public Decimal UnitPrice { get; set; }
-			public Int16 UnitsInStock { get; set; }
-			public Int16 UnitsOnOrder { get; set; }
-			public Int16 ReorderLevel { get; set; }
-			public Boolean Discontinued { get; set; }
+			public int Id { get; set; }
+			public string Name { get; set; }
+			public int SupplierId { get; set; }
+			public int CategoryId { get; set; }
+			public string QuantityPerUnit { get; set; }
+			public decimal UnitPrice { get; set; }
+			public short UnitsInStock { get; set; }
+			public short UnitsOnOrder { get; set; }
+			public short ReorderLevel { get; set; }
+			public bool Discontinued { get; set; }
 		}
 
 		// Makes a user business object from a data row.

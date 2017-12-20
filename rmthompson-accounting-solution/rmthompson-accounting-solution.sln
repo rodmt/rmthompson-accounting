@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF4A7364-5043-4A5A-9243-8A8FBBB49CC0}"
 EndProject
@@ -27,7 +27,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZionSoftware.Solutions.Data
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ThompsonAccounting", "ThompsonAccounting\ThompsonAccounting.sqlproj", "{A396F528-2BC0-4EC5-ADAC-FBD78EF64CFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThompsonAccountingWeb", "ThompsonAccountingWeb\ThompsonAccountingWeb.csproj", "{1633813E-4C0E-4A34-983E-1E36967893C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThompsonAccountingCoreWeb", "ThompsonAccountingCoreWeb\ThompsonAccountingCoreWeb.csproj", "{D679117F-92C5-44EC-B7E4-F2D0CB4EF4D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThompsonAccountingWeb", "ThompsonAccountingWeb\ThompsonAccountingWeb.csproj", "{37261086-4FEB-4ACD-9A02-14B0D316CBB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +51,14 @@ Global
 		{A396F528-2BC0-4EC5-ADAC-FBD78EF64CFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A396F528-2BC0-4EC5-ADAC-FBD78EF64CFD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A396F528-2BC0-4EC5-ADAC-FBD78EF64CFD}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{1633813E-4C0E-4A34-983E-1E36967893C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1633813E-4C0E-4A34-983E-1E36967893C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1633813E-4C0E-4A34-983E-1E36967893C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1633813E-4C0E-4A34-983E-1E36967893C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D679117F-92C5-44EC-B7E4-F2D0CB4EF4D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D679117F-92C5-44EC-B7E4-F2D0CB4EF4D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D679117F-92C5-44EC-B7E4-F2D0CB4EF4D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D679117F-92C5-44EC-B7E4-F2D0CB4EF4D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37261086-4FEB-4ACD-9A02-14B0D316CBB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37261086-4FEB-4ACD-9A02-14B0D316CBB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37261086-4FEB-4ACD-9A02-14B0D316CBB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37261086-4FEB-4ACD-9A02-14B0D316CBB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,10 @@ Global
 		{C07749F0-94E2-4DB3-B1DD-5CB91BB9B600} = {21061FA2-7825-4B7C-B46E-D9C0678934A8}
 		{F60B2810-00A4-4173-A295-4F75E5BAC2B1} = {827BB585-8447-4BC6-8DAB-1A0A94E83109}
 		{A396F528-2BC0-4EC5-ADAC-FBD78EF64CFD} = {668AF3DF-C5BB-42E1-A21B-6A55B856124F}
-		{1633813E-4C0E-4A34-983E-1E36967893C5} = {5126C982-78AD-4C35-9DBB-59577B564040}
+		{D679117F-92C5-44EC-B7E4-F2D0CB4EF4D9} = {5126C982-78AD-4C35-9DBB-59577B564040}
+		{37261086-4FEB-4ACD-9A02-14B0D316CBB3} = {5126C982-78AD-4C35-9DBB-59577B564040}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BCDB2940-1539-4639-86F6-3C8D4BCCADC4}
 	EndGlobalSection
 EndGlobal

@@ -35,7 +35,7 @@ namespace ZionSoftware.Solutions.Data
         /// Gets a value that indicates whether the 
         /// <see cref="IDbConnection"/> is open.
         /// </summary>
-        public Boolean IsOpen => Connection.State == ConnectionState.Open;
+        public bool IsOpen => Connection.State == ConnectionState.Open;
 
 	    /// <summary>
         /// Default constructor.

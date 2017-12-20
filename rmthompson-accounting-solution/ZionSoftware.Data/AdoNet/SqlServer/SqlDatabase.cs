@@ -26,15 +26,16 @@ namespace ZionSoftware.Solutions.Data.AdoNet.SqlServer
 {
     public class SqlDatabase : Database
     {
-        private const Char _ParameterToken = '@';
+        private const char _ParameterToken = '@';
 
+        /// <inheritdoc />
         /// <summary>
         /// Default constructor.
         /// </summary>
         /// <param name="connectionString">A connection string.</param>
         /// <param name="commandTimeout">A command timeout.</param>
-        public SqlDatabase(String connectionString,
-                           Int32 commandTimeout = 60)
+        public SqlDatabase(string connectionString,
+                           int commandTimeout = 60)
             : base(SqlClientFactory.Instance, new SqlConnectionStringBuilder(connectionString), commandTimeout)
         {
         }
@@ -47,17 +48,15 @@ namespace ZionSoftware.Solutions.Data.AdoNet.SqlServer
         /// <param name="dbType">The <see cref="DbType"/> of a <see cref="IDataParameter"/>.</param>
         /// <param name="value">The value of a <see cref="IDataParameter"/>.</param>
         public void AddInParameter(IDbCommand command,
-                                   String parameterName,
+                                   string parameterName,
                                    SqlDbType dbType,
-                                   Object value)
+                                   object value)
         {
-            // Validate the argument(s)
             if (command == null)
                 throw new ArgumentNullException(nameof(command));
 
-            // Create the parameter.
             AddParameter(command, parameterName, dbType, 0, ParameterDirection.Input, true,
-                          String.Empty, DataRowVersion.Default, value);
+                         string.Empty, DataRowVersion.Default, value);
         }
 
         /// <summary>
@@ -69,20 +68,18 @@ namespace ZionSoftware.Solutions.Data.AdoNet.SqlServer
         /// <param name="size">The size of a <see cref="IDataParameter"/>.</param>
         /// <param name="value">The value of a <see cref="IDataParameter"/>.</param>
         public void AddInParameter(IDbCommand command,
-                                   String parameterName,
+                                   string parameterName,
                                    SqlDbType dbType,
-                                   Int32 size,
-                                   Object value)
+                                   int size,
+                                   object value)
         {
-            // Validate the argument(s)
             if (command == null)
                 throw new ArgumentNullException(nameof(command));
-            if (String.IsNullOrEmpty(parameterName))
+            if (string.IsNullOrEmpty(parameterName))
                 throw new ArgumentException(Resources.ExceptionNullOrEmptyString, nameof(parameterName));
 
-            // Create the parameter.
             AddParameter(command, parameterName, dbType, size, ParameterDirection.Input, true,
-                          null, DataRowVersion.Default, value);
+                         null, DataRowVersion.Default, value);
         }
 
         /// <summary>
@@ -93,19 +90,17 @@ namespace ZionSoftware.Solutions.Data.AdoNet.SqlServer
         /// <param name="dbType">The <see cref="DbType"/> of a <see cref="IDataParameter"/>.</param>
         /// <param name="value">The value of a <see cref="IDataParameter"/>.</param>
         public void AddOutParameter(IDbCommand command,
-                                    String parameterName,
+                                    string parameterName,
                                     SqlDbType dbType,
-                                    Object value)
+                                    object value)
         {
-            // Validate the argument(s)
             if (command == null)
                 throw new ArgumentNullException(nameof(command));
-            if (String.IsNullOrEmpty(parameterName))
+            if (string.IsNullOrEmpty(parameterName))
                 throw new ArgumentException(Resources.ExceptionNullOrEmptyString, nameof(parameterName));
 
-            // Create the parameter.
             AddParameter(command, parameterName, dbType, 0, ParameterDirection.Output, true,
-                          String.Empty, DataRowVersion.Default, value);
+                         string.Empty, DataRowVersion.Default, value);
         }
 
         /// <summary>
@@ -115,17 +110,15 @@ namespace ZionSoftware.Solutions.Data.AdoNet.SqlServer
         /// <param name="parameterName">The name of a <see cref="IDataParameter"/>.</param>
         /// <param name="dbType">The <see cref="DbType"/> of a <see cref="IDataParameter"/>.</param>
         public void AddOutParameter(IDbCommand command,
-                                    String parameterName,
+                                    string parameterName,
                                     SqlDbType dbType)
         {
-            // Validate the argument(s)
             if (command == null)
                 throw new ArgumentNullException(nameof(command));
-            if (String.IsNullOrEmpty(parameterName))
+            if (string.IsNullOrEmpty(parameterName))
                 throw new ArgumentException(Resources.ExceptionNullOrEmptyString, nameof(parameterName));
 
-            // Create the parameter.
-            AddParameter(command, parameterName, dbType, 0, ParameterDirection.Output, true,
+           AddParameter(command, parameterName, dbType, 0, ParameterDirection.Output, true,
                           null, DataRowVersion.Default, null);
         }
 
@@ -137,14 +130,14 @@ namespace ZionSoftware.Solutions.Data.AdoNet.SqlServer
         /// <param name="dbType">The <see cref="DbType"/> of a <see cref="IDataParameter"/>.</param>
         /// <param name="size">The size of a <see cref="IDataParameter"/>.</param>
         public void AddOutParameter(IDbCommand command,
-                                    String parameterName,
+                                    string parameterName,
                                     SqlDbType dbType,
-                                    Int32 size)
+                                    int size)
         {
             // Validate the argument(s)
             if (command == null)
                 throw new ArgumentNullException(nameof(command));
-            if (String.IsNullOrEmpty(parameterName))
+            if (string.IsNullOrEmpty(parameterName))
                 throw new ArgumentException(Resources.ExceptionNullOrEmptyString, nameof(parameterName));
 
             // Create the parameter.
@@ -165,14 +158,14 @@ namespace ZionSoftware.Solutions.Data.AdoNet.SqlServer
         /// <param name="dataRowVersion">A <see cref="DataRowVersion"/>.</param>
         /// <param name="value">The value of a <see cref="IDataParameter"/>.</param>
         public virtual void AddParameter(IDbCommand command,
-                                         String parameterName,
+                                         string parameterName,
                                          SqlDbType dbType,
-                                         Int32 size,
+                                         int size,
                                          ParameterDirection parameterDirection,
-                                         Boolean isNullable,
-                                         String sourceColumn,
+                                         bool isNullable,
+                                         string sourceColumn,
                                          DataRowVersion dataRowVersion,
-                                         Object value)
+                                         object value)
         {
             // Validate the argument(s)
             if (command == null)
@@ -197,14 +190,14 @@ namespace ZionSoftware.Solutions.Data.AdoNet.SqlServer
         /// <param name="dataRowVersion">A <see cref="DataRowVersion"/>.</param>
         /// <param name="value">The value of parameter.</param>
         /// <returns>A <see cref="IDbDataParameter"/>.</returns>
-        protected virtual IDbDataParameter CreateParameter(String parameterName,
+        protected virtual IDbDataParameter CreateParameter(string parameterName,
                                                            SqlDbType dbType,
-                                                           Int32 size,
+                                                           int size,
                                                            ParameterDirection parameterDirection,
-                                                           Boolean isNullable,
-                                                           String sourceColumn,
+                                                           bool isNullable,
+                                                           string sourceColumn,
                                                            DataRowVersion dataRowVersion,
-                                                           Object value)
+                                                           object value)
         {
             // Create the parameter.
             var dbParameter = CreateParameter(parameterName) as SqlParameter;
@@ -234,14 +227,14 @@ namespace ZionSoftware.Solutions.Data.AdoNet.SqlServer
         /// <param name="scale">The number of decimal places to which Value is resolved.</param>
         protected virtual void ConfigureParameter(SqlParameter parameter,
                                                   SqlDbType dbType,
-                                                  Int32 size,
+                                                  int size,
                                                   ParameterDirection parameterDirection,
-                                                  Boolean isNullable,
-                                                  String sourceColumn,
+                                                  bool isNullable,
+                                                  string sourceColumn,
                                                   DataRowVersion dataRowVersion,
-                                                  Object value,
-                                                  Byte precision = 0,
-                                                  Byte scale = 0)
+                                                  object value,
+                                                  byte precision = 0,
+                                                  byte scale = 0)
         {
             // Validate the argument(s)
             if (parameter == null)
@@ -264,12 +257,12 @@ namespace ZionSoftware.Solutions.Data.AdoNet.SqlServer
         /// </summary>
         /// <param name="parameterName">A parameter name.</param>
         /// <returns>A Formatted parameter name.</returns>
-        protected override String FormatParameterName(String parameterName)
+        protected override string FormatParameterName(string parameterName)
         {
             if (parameterName == null) throw new ArgumentNullException(nameof(parameterName));
 
             // Check if the parameter has valid format token.
-            return parameterName[0] != _ParameterToken ? parameterName.Insert(0, new String(_ParameterToken, 1)) : parameterName;
+            return parameterName[0] != _ParameterToken ? parameterName.Insert(0, new string(_ParameterToken, 1)) : parameterName;
         }
 
         /// <summary>

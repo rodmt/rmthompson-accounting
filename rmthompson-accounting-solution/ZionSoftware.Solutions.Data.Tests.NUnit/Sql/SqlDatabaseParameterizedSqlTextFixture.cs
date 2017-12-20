@@ -57,7 +57,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit.Sql
 		public void ASqlTextCommandWithParametersShouldReturnDataSet()
 		{
 			// Arrange
-			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
+			const string sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
 			IDbCommand dbCommand = m_sqlDatabase.GetSqlTextCommand(sqlText);
 			m_sqlDatabase.AddInParameter(dbCommand, "@param1", SqlDbType.Int, 1);
 			m_sqlDatabase.AddInParameter(dbCommand, "@param2", SqlDbType.NVarChar, "Chang");
@@ -74,7 +74,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit.Sql
 		public void ASqlTextCommandWithNotEnoughParameterValuesShouldThrow()
 		{
 			// Arrange
-			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
+			const string sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
 			IDbCommand dbCommand = m_sqlDatabase.GetSqlTextCommand(sqlText);
 			m_sqlDatabase.AddInParameter(dbCommand, "@param1", SqlDbType.Int, 1);
 
@@ -88,7 +88,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit.Sql
 		public void ASqlTextCommandWithTooManyParameterValuesShouldThrow()
 		{
 			// Arrange
-			const String sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
+			const string sqlText = "select * from [Northwind].[dbo].[Products] where [SupplierId] = @param1 and [ProductName] = @param2;";
 			IDbCommand dbCommand = m_sqlDatabase.GetSqlTextCommand(sqlText);
 			m_sqlDatabase.AddInParameter(dbCommand, "@param1", SqlDbType.Int, 1);
 			m_sqlDatabase.AddInParameter(dbCommand, "@param2", SqlDbType.NVarChar, "Chang");

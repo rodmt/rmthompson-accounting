@@ -8,7 +8,7 @@
 **
 **      Desc:   Handles the tests for the database extensions class.
 **
-** Copyright © 2016 Zion Software Solutions, LLC. All Rights Reserved.
+** Copyright © 2018 Zion Software Solutions, LLC. All Rights Reserved.
 **
 ** Unpublished copyright. This material contains proprietary information
 ** that shall be used or copied only within Zion Software Solutions, 
@@ -26,8 +26,8 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 	public class DatabaseExtensionsFixture
 	{
 		private readonly DBNull _dbNull = DBNull.Value;
-		private readonly Object _nullObject = null;
-		private readonly Object _guidObject = "01234567-89AB-CDEF-0123-456789ABCDEF";
+		private readonly object _nullObject = null;
+		private readonly object _guidObject = "01234567-89AB-CDEF-0123-456789ABCDEF";
 
 		#region AsBoolean Tests
 
@@ -35,7 +35,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnDefaultBoolean()
 		{
 			// Arrange
-			const Boolean expectedValue = default(Boolean);
+			const bool expectedValue = default(bool);
 
 			// Act - Convert to Boolean.
 			var actualValue = _dbNull.AsBoolean();
@@ -48,7 +48,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnGivenDefaultBoolean()
 		{
 			// Arrange
-			const Boolean expectedValue = true;
+			const bool expectedValue = true;
 
 			// Act - Convert to Boolean.
 			var actualValue = _dbNull.AsBoolean(expectedValue);
@@ -61,7 +61,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnDefaultBoolean()
 		{
 			// Arrange
-			const Boolean expectedValue = default(Boolean);
+			const bool expectedValue = default(bool);
 
 			// Act - Convert to Boolean.
 			var actualValue = _nullObject.AsBoolean();
@@ -74,7 +74,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnGivenDefaultBoolean()
 		{
 			// Arrange
-			const Boolean expectedValue = true;
+			const bool expectedValue = true;
 
 			// Act - Convert to Boolean.
 			var actualValue = _nullObject.AsBoolean(expectedValue);
@@ -87,7 +87,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnDefaultBoolean()
 		{
 			// Arrange
-			const Boolean expectedValue = default(Boolean);
+			const bool expectedValue = default(bool);
 
 			// Act - Convert to Boolean.
 			var actualValue = "Invalid Object".AsBoolean();
@@ -100,7 +100,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnGivenDefaultBoolean()
 		{
 			// Arrange
-			const Boolean expectedValue = true;
+			const bool expectedValue = true;
 
 			// Act - Convert to Boolean.
 			var actualValue = "Invalid Object".AsBoolean(expectedValue);
@@ -113,8 +113,8 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AValidBooleanObjectShouldReturnBoolean()
 		{
 			// Arrange
-			Object booleanObject = true;
-			var expectedValue = Boolean.Parse(booleanObject.ToString());
+			object booleanObject = true;
+			var expectedValue = bool.Parse(booleanObject.ToString());
 
 			// Act - Convert to Boolean.
 			var actualValue = booleanObject.AsBoolean();
@@ -131,7 +131,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnDefaultByte()
 		{
 			// Arrange
-			const Byte expectedValue = default(Byte);
+			const byte expectedValue = default(byte);
 
 			// Act - Convert to Byte.
 			var actualValue = _dbNull.AsByte();
@@ -144,7 +144,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnGivenDefaultByte()
 		{
 			// Arrange
-			const Byte expectedValue = Byte.MaxValue - 1;
+			const byte expectedValue = byte.MaxValue - 1;
 
 			// Act - Convert to Byte.
 			var actualValue = _dbNull.AsByte(expectedValue);
@@ -157,7 +157,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnDefaultByte()
 		{
 			// Arrange
-			const Byte expectedValue = default(Byte);
+			const byte expectedValue = default(byte);
 
 			// Act - Convert to Byte.
 			var actualValue = _nullObject.AsByte();
@@ -170,7 +170,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnGivenDefaultByte()
 		{
 			// Arrange
-			const Byte expectedValue = Byte.MaxValue - 1;
+			const byte expectedValue = byte.MaxValue - 1;
 
 			// Act - Convert to Byte.
 			var actualValue = _nullObject.AsByte(expectedValue);
@@ -183,10 +183,10 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnDefaultByte()
 		{
 			// Arrange
-			const Byte expectedValue = default(Byte);
+			const byte expectedValue = default(byte);
 
 			// Act - Convert to Byte.
-			var actualValue = (Byte.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
+			var actualValue = (byte.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
 												 .AsByte();
 
 			// Assert
@@ -197,10 +197,10 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnGivenDefaultByte()
 		{
 			// Arrange
-			const Byte expectedValue = Byte.MaxValue - 1;
+			const byte expectedValue = byte.MaxValue - 1;
 
 			// Act - Convert to Byte.
-			var actualValue = (Byte.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
+			var actualValue = (byte.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
 												 .AsByte(expectedValue);
 
 			// Assert
@@ -211,8 +211,8 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AValidByteObjectShouldReturnByte()
 		{
 			// Arrange
-			Object byteObject = (Byte.MaxValue / 2);
-			var expectedValue = Byte.Parse(byteObject.ToString());
+			object byteObject = (byte.MaxValue / 2);
+			var expectedValue = byte.Parse(byteObject.ToString());
 
 			// Act - Convert to Byte.
 			var actualValue = byteObject.AsByte();
@@ -229,7 +229,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnDefaultByteArray()
 		{
 			// Arrange
-			const Byte[] expectedValue = default(Byte[]);
+			const byte[] expectedValue = default(byte[]);
 
 			// Act - Convert to ByteArray.
 			var actualValue = _dbNull.AsBytes();
@@ -242,7 +242,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnGivenDefaultByteArray()
 		{
 			// Arrange
-			var expectedValue = new Byte[] { 0x1, 0x2, 0x3, 0x4, 0xAA, 0xAF };
+			var expectedValue = new byte[] { 0x1, 0x2, 0x3, 0x4, 0xAA, 0xAF };
 
 			// Act - Convert to ByteArray.
 			var actualValue = _dbNull.AsBytes(expectedValue);
@@ -255,7 +255,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnDefaultByteArray()
 		{
 			// Arrange
-			const Byte[] expectedValue = default(Byte[]);
+			const byte[] expectedValue = default(byte[]);
 
 			// Act - Convert to ByteArray.
 			var actualValue = _nullObject.AsBytes();
@@ -268,7 +268,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnGivenDefaultByteArray()
 		{
 			// Arrange
-			var expectedValue = new Byte[] { 0x1, 0x2, 0x3, 0x4, 0xAA, 0xAF };
+			var expectedValue = new byte[] { 0x1, 0x2, 0x3, 0x4, 0xAA, 0xAF };
 
 			// Act - Convert to ByteArray.
 			var actualValue = _nullObject.AsBytes(expectedValue);
@@ -282,10 +282,10 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnDefaultByteArray()
 		{
 			// Arrange
-			const Byte[] expectedValue = default(Byte[]);
+			const byte[] expectedValue = default(byte[]);
 
 			// Act - Convert to ByteArray.
-			var actualValue = (Byte.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
+			var actualValue = (byte.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
 												   .AsBytes();
 
 			// Assert
@@ -297,10 +297,10 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnGivenDefaultByteArray()
 		{
 			// Arrange
-			var expectedValue = new Byte[] { 0x1, 0x2, 0x3, 0x4, 0xAA, 0xAF };
+			var expectedValue = new byte[] { 0x1, 0x2, 0x3, 0x4, 0xAA, 0xAF };
 
 			// Act - Convert to ByteArray.
-			var actualValue = (Byte.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
+			var actualValue = (byte.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
 												   .AsBytes(expectedValue);
 
 			// Assert
@@ -312,8 +312,8 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AValidByteArrayObjectShouldReturnByteArray()
 		{
 			// Arrange
-			Object byteArrayObject = Int64.MaxValue;
-			var expectedValue = BitConverter.GetBytes(Int64.MaxValue);
+			object byteArrayObject = long.MaxValue;
+			var expectedValue = BitConverter.GetBytes(long.MaxValue);
 
 			// Act - Convert to ByteArray.
 			var actualValue = byteArrayObject.AsBytes();
@@ -330,7 +330,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnDefaultChar()
 		{
 			// Arrange
-			const Char expectedValue = default(Char);
+			const char expectedValue = default(char);
 
 			// Act - Convert to Char.
 			var actualValue = _dbNull.AsChar();
@@ -343,7 +343,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnGivenDefaultChar()
 		{
 			// Arrange
-			const Char expectedValue = 'A';
+			const char expectedValue = 'A';
 
 			// Act - Convert to Char.
 			var actualValue = _dbNull.AsChar(expectedValue);
@@ -356,7 +356,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnDefaultChar()
 		{
 			// Arrange
-			const Char expectedValue = default(Char);
+			const char expectedValue = default(char);
 
 			// Act - Convert to Char.
 			var actualValue = _nullObject.AsChar();
@@ -369,7 +369,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnGivenDefaultChar()
 		{
 			// Arrange
-			const Char expectedValue = 'A';
+			const char expectedValue = 'A';
 
 			// Act - Convert to Char.
 			var actualValue = _nullObject.AsChar(expectedValue);
@@ -382,10 +382,10 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnDefaultChar()
 		{
 			// Arrange
-			const Char expectedValue = default(Char);
+			const char expectedValue = default(char);
 
 			// Act - Convert to Char.
-			var actualValue = (Char.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
+			var actualValue = (char.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
 												   .AsChar();
 
 			// Assert
@@ -396,10 +396,10 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnGivenDefaultChar()
 		{
 			// Arrange
-			const Char expectedValue = 'A';
+			const char expectedValue = 'A';
 
 			// Act - Convert to Char.
-			var actualValue = (Char.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
+			var actualValue = (char.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
 												   .AsChar(expectedValue);
 
 			// Assert
@@ -410,8 +410,8 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AValidCharObjectShouldReturnChar()
 		{
 			// Arrange
-			Object charObject = Char.MaxValue;
-			var expectedValue = Char.Parse(charObject.ToString());
+			object charObject = char.MaxValue;
+			var expectedValue = char.Parse(charObject.ToString());
 
 			// Act - Convert to Char.
 			var actualValue = charObject.AsChar();
@@ -506,7 +506,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AValidDateTimeObjectShouldReturnDateTime()
 		{
 			// Arrange
-			Object dateTimeObject = new DateTime(1976, 7, 14);
+			object dateTimeObject = new DateTime(1976, 7, 14);
 			var expectedValue = Convert.ToDateTime(dateTimeObject);
 
 			// Act - Convert to DateTime.
@@ -524,7 +524,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnDefaultDecimal()
 		{
 			// Arrange
-			const Decimal expectedValue = default(Decimal);
+			const decimal expectedValue = default(decimal);
 
 			// Act - Convert to Decimal.
 			var actualValue = _dbNull.AsDecimal();
@@ -537,7 +537,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnGivenDefaultDecimal()
 		{
 			// Arrange
-			var expectedValue = new Decimal(7.2398);
+			var expectedValue = new decimal(7.2398);
 
 			// Act - Convert to Decimal.
 			var actualValue = _dbNull.AsDecimal(expectedValue);
@@ -550,7 +550,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnDefaultDecimal()
 		{
 			// Arrange
-			const Decimal expectedValue = default(Decimal);
+			const decimal expectedValue = default(decimal);
 
 			// Act - Convert to Decimal.
 			var actualValue = _nullObject.AsDecimal();
@@ -563,7 +563,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnGivenDefaultDecimal()
 		{
 			// Arrange
-			var expectedValue = new Decimal(7.2398);
+			var expectedValue = new decimal(7.2398);
 
 			// Act - Convert to Decimal.
 			var actualValue = _nullObject.AsDecimal(expectedValue);
@@ -576,7 +576,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnDefaultDecimal()
 		{
 			// Arrange
-			const Decimal expectedValue = default(Decimal);
+			const decimal expectedValue = default(decimal);
 
 			// Act - Convert to Decimal.
 			var actualValue = "Invalid Object".AsDecimal();
@@ -589,7 +589,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnGivenDefaultDecimal()
 		{
 			// Arrange
-			var expectedValue = new Decimal(7.2398);
+			var expectedValue = new decimal(7.2398);
 
 			// Act - Convert to Decimal.
 			var actualValue = "Invalid Object".AsDecimal(expectedValue);
@@ -602,8 +602,8 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AValidDecimalObjectShouldReturnDecimal()
 		{
 			// Arrange
-			Object decimalObject = (Decimal.MaxValue / 2);
-			var expectedValue = Decimal.Parse(decimalObject.ToString());
+			object decimalObject = (decimal.MaxValue / 2);
+			var expectedValue = decimal.Parse(decimalObject.ToString());
 
 			// Act - Convert to Decimal.
 			var actualValue = decimalObject.AsDecimal();
@@ -698,7 +698,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AValidGuidObjectShouldReturnGuid()
 		{
 			// Arrange
-			Object guidObject = "01234567-89AB-CDEF-0123-456789ABCDEF";
+			object guidObject = "01234567-89AB-CDEF-0123-456789ABCDEF";
 			var expectedValue = new Guid(guidObject.ToString());
 
 			// Act - Convert to GUID.
@@ -716,7 +716,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnDefaultInt16()
 		{
 			// Arrange
-			const Int16 expectedValue = default(Int16);
+			const short expectedValue = default(short);
 
 			// Act - Convert to Int16.
 			var actualValue = _dbNull.AsInt16();
@@ -729,7 +729,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnGivenDefaultInt16()
 		{
 			// Arrange
-			const Int16 expectedValue = Int16.MaxValue;
+			const short expectedValue = short.MaxValue;
 
 			// Act - Convert to Int16.
 			var actualValue = _dbNull.AsInt16(expectedValue);
@@ -742,7 +742,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnDefaultInt16()
 		{
 			// Arrange
-			const Int16 expectedValue = default(Int16);
+			const short expectedValue = default(short);
 
 			// Act - Convert to Int16.
 			var actualValue = _nullObject.AsInt16();
@@ -755,7 +755,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnGivenDefaultInt16()
 		{
 			// Arrange
-			const Int16 expectedValue = Int16.MaxValue;
+			const short expectedValue = short.MaxValue;
 
 			// Act - Convert to Int16.
 			var actualValue = _nullObject.AsInt16(expectedValue);
@@ -768,7 +768,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnDefaultInt16()
 		{
 			// Arrange
-			const Int16 expectedValue = default(Int16);
+			const short expectedValue = default(short);
 
 			// Act - Convert to Int16.
 			var actualValue = "Invalid Object".AsInt16();
@@ -781,7 +781,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnGivenDefaultInt16()
 		{
 			// Arrange
-			const Int16 expectedValue = Int16.MaxValue;
+			const short expectedValue = short.MaxValue;
 
 			// Act - Convert to Int16.
 			var actualValue = "Invalid Object".AsInt16(expectedValue);
@@ -794,10 +794,10 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AValidInt16ObjectShouldReturnInt16()
 		{
 			// Arrange
-			const Int16 expectedValue = Int16.MaxValue;
+			const short expectedValue = short.MaxValue;
 
 			// Act - Convert to Int16.
-			var actualValue = Int16.MaxValue.ToString(CultureInfo.InvariantCulture).AsInt16();
+			var actualValue = short.MaxValue.ToString(CultureInfo.InvariantCulture).AsInt16();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -811,7 +811,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnDefaultInt32()
 		{
 			// Arrange
-			const Int32 expectedValue = default(Int32);
+			const int expectedValue = default(int);
 
 			// Act - Convert to Int32.
 			var actualValue = _dbNull.AsInt32();
@@ -824,7 +824,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnGivenDefaultInt32()
 		{
 			// Arrange
-			const Int32 expectedValue = Int32.MaxValue;
+			const int expectedValue = int.MaxValue;
 
 			// Act - Convert to Int32.
 			var actualValue = _dbNull.AsInt32(expectedValue);
@@ -837,7 +837,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnDefaultInt32()
 		{
 			// Arrange
-			const Int32 expectedValue = default(Int32);
+			const int expectedValue = default(int);
 
 			// Act - Convert to Int32.
 			var actualValue = _nullObject.AsInt32();
@@ -850,7 +850,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnGivenDefaultInt32()
 		{
 			// Arrange
-			const Int32 expectedValue = Int32.MaxValue;
+			const int expectedValue = int.MaxValue;
 
 			// Act - Convert to Int32.
 			var actualValue = _nullObject.AsInt32(expectedValue);
@@ -863,7 +863,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnDefaultInt32()
 		{
 			// Arrange
-			const Int32 expectedValue = default(Int32);
+			const int expectedValue = default(int);
 
 			// Act - Convert to Int32.
 			var actualValue = "Invalid Object".AsInt32();
@@ -876,7 +876,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnGivenDefaultInt32()
 		{
 			// Arrange
-			const Int32 expectedValue = Int32.MaxValue;
+			const int expectedValue = int.MaxValue;
 
 			// Act - Convert to Int32.
 			var actualValue = "Invalid Object".AsInt32(expectedValue);
@@ -889,10 +889,10 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AValidInt32ObjectShouldReturnInt32()
 		{
 			// Arrange
-			const Int32 expectedValue = Int32.MaxValue;
+			const int expectedValue = int.MaxValue;
 
 			// Act - Convert to Int32.
-			var actualValue = Int32.MaxValue.ToString(CultureInfo.InvariantCulture).AsInt32();
+			var actualValue = int.MaxValue.ToString(CultureInfo.InvariantCulture).AsInt32();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -906,7 +906,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnDefaultInt64()
 		{
 			// Arrange
-			const Int64 expectedValue = default(Int64);
+			const long expectedValue = default(long);
 
 			// Act - Convert to Int64.
 			var actualValue = _dbNull.AsInt64();
@@ -919,7 +919,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnGivenDefaultInt64()
 		{
 			// Arrange
-			const Int64 expectedValue = Int64.MaxValue;
+			const long expectedValue = long.MaxValue;
 
 			// Act - Convert to Int64.
 			var actualValue = _dbNull.AsInt64(expectedValue);
@@ -932,7 +932,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnDefaultInt64()
 		{
 			// Arrange
-			const Int64 expectedValue = default(Int64);
+			const long expectedValue = default(long);
 
 			// Act - Convert to Int64.
 			var actualValue = _nullObject.AsInt64();
@@ -945,7 +945,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnGivenDefaultInt64()
 		{
 			// Arrange
-			const Int64 expectedValue = Int64.MaxValue;
+			const long expectedValue = long.MaxValue;
 
 			// Act - Convert to Int64.
 			var actualValue = _nullObject.AsInt64(expectedValue);
@@ -958,7 +958,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnDefaultInt64()
 		{
 			// Arrange
-			const Int64 expectedValue = default(Int64);
+			const long expectedValue = default(long);
 
 			// Act - Convert to Int64.
 			var actualValue = "Invalid Object".AsInt64();
@@ -971,7 +971,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnGivenDefaultInt64()
 		{
 			// Arrange
-			const Int64 expectedValue = Int64.MaxValue;
+			const long expectedValue = long.MaxValue;
 
 			// Act - Convert to Int64.
 			var actualValue = "Invalid Object".AsInt64(expectedValue);
@@ -984,10 +984,10 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AValidInt64ObjectShouldReturnInt64()
 		{
 			// Arrange
-			const Int64 expectedValue = Int64.MaxValue;
+			const long expectedValue = long.MaxValue;
 
 			// Act - Convert to Int64.
-			var actualValue = Int64.MaxValue.ToString(CultureInfo.InvariantCulture).AsInt64();
+			var actualValue = long.MaxValue.ToString(CultureInfo.InvariantCulture).AsInt64();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1001,7 +1001,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnDefaultSByte()
 		{
 			// Arrange
-			const SByte expectedValue = default(SByte);
+			const sbyte expectedValue = default(sbyte);
 
 			// Act - Convert to SByte.
 			var actualValue = _dbNull.AsSByte();
@@ -1014,7 +1014,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnGivenDefaultSByte()
 		{
 			// Arrange
-			const SByte expectedValue = SByte.MaxValue - 1;
+			const sbyte expectedValue = sbyte.MaxValue - 1;
 
 			// Act - Convert to SByte.
 			var actualValue = _dbNull.AsSByte(expectedValue);
@@ -1027,7 +1027,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnDefaultSByte()
 		{
 			// Arrange
-			const SByte expectedValue = default(SByte);
+			const sbyte expectedValue = default(sbyte);
 
 			// Act - Convert to SByte.
 			var actualValue = _nullObject.AsSByte();
@@ -1040,7 +1040,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnGivenDefaultSByte()
 		{
 			// Arrange
-			const SByte expectedValue = SByte.MaxValue - 1;
+			const sbyte expectedValue = sbyte.MaxValue - 1;
 
 			// Act - Convert to SByte.
 			var actualValue = _nullObject.AsSByte(expectedValue);
@@ -1053,10 +1053,10 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnDefaultSByte()
 		{
 			// Arrange
-			const SByte expectedValue = default(SByte);
+			const sbyte expectedValue = default(sbyte);
 
 			// Act - Convert to SByte.
-			var actualValue = (SByte.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
+			var actualValue = (sbyte.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
 													.AsSByte();
 
 			// Assert
@@ -1067,10 +1067,10 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnGivenDefaultSByte()
 		{
 			// Arrange
-			const SByte expectedValue = SByte.MaxValue - 1;
+			const sbyte expectedValue = sbyte.MaxValue - 1;
 
 			// Act - Convert to SByte.
-			var actualValue = (SByte.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
+			var actualValue = (sbyte.MaxValue + 1).ToString(CultureInfo.InvariantCulture)
 													.AsSByte(expectedValue);
 
 			// Assert
@@ -1081,8 +1081,8 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AValidSByteObjectShouldReturnSByte()
 		{
 			// Arrange
-			Object sbyteObject = (SByte.MaxValue / 2);
-			var expectedValue = SByte.Parse(sbyteObject.ToString());
+			object sbyteObject = (sbyte.MaxValue / 2);
+			var expectedValue = sbyte.Parse(sbyteObject.ToString());
 
 			// Act - Convert to SByte.
 			var actualValue = sbyteObject.AsSByte();
@@ -1099,7 +1099,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnDefaultSingle()
 		{
 			// Arrange
-			const Single expectedValue = default(Single);
+			const float expectedValue = default(float);
 
 			// Act - Convert to Single.
 			var actualValue = _dbNull.AsSingle();
@@ -1125,7 +1125,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnDefaultSingle()
 		{
 			// Arrange
-			const Single expectedValue = default(Single);
+			const float expectedValue = default(float);
 
 			// Act - Convert to Single.
 			var actualValue = _nullObject.AsSingle();
@@ -1151,7 +1151,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnDefaultSingle()
 		{
 			// Arrange
-			const Single expectedValue = default(Single);
+			const float expectedValue = default(float);
 
 			// Act - Convert to Single.
 			var actualValue = "Invalid Object".AsSingle();
@@ -1177,8 +1177,8 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AValidSingleObjectShouldReturnSingle()
 		{
 			// Arrange
-			Object singleObject = Single.Epsilon;
-			var expectedValue = Single.Parse(singleObject.ToString());
+			object singleObject = float.Epsilon;
+			var expectedValue = float.Parse(singleObject.ToString());
 
 			// Act - Convert to Single.
 			var actualValue = singleObject.AsSingle();
@@ -1195,7 +1195,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnDefaultString()
 		{
 			// Arrange
-			const String expectedValue = default(String);
+			const string expectedValue = default(string);
 
 			// Act - Convert to String.
 			var actualValue = DatabaseExtensions.AsString(_dbNull);
@@ -1208,7 +1208,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnGivenDefaultString()
 		{
 			// Arrange
-			const String expectedValue = "Given Default String";
+			const string expectedValue = "Given Default String";
 
 			// Act - Convert to String.
 			var actualValue = _dbNull.AsString(expectedValue);
@@ -1221,7 +1221,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnDefaultString()
 		{
 			// Arrange
-			const String expectedValue = default(String);
+			const string expectedValue = default(string);
 
 			// Act - Convert to String.
 			var actualValue = DatabaseExtensions.AsString(_nullObject);
@@ -1234,7 +1234,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnGivenDefaultString()
 		{
 			// Arrange
-			const String expectedValue = "Given Default String";
+			const string expectedValue = "Given Default String";
 
 			// Act - Convert to String.
 			var actualValue = _nullObject.AsString(expectedValue);
@@ -1251,7 +1251,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnDefaultUInt16()
 		{
 			// Arrange
-			const UInt16 expectedValue = default(UInt16);
+			const ushort expectedValue = default(ushort);
 
 			// Act - Convert to UInt16.
 			var actualValue = _dbNull.AsUInt16();
@@ -1264,7 +1264,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnGivenDefaultUInt16()
 		{
 			// Arrange
-			const UInt16 expectedValue = UInt16.MaxValue;
+			const ushort expectedValue = ushort.MaxValue;
 
 			// Act - Convert to UInt16.
 			var actualValue = _dbNull.AsUInt16(expectedValue);
@@ -1277,7 +1277,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnDefaultUInt16()
 		{
 			// Arrange
-			const UInt16 expectedValue = default(UInt16);
+			const ushort expectedValue = default(ushort);
 
 			// Act - Convert to UInt16.
 			var actualValue = _nullObject.AsUInt16();
@@ -1290,7 +1290,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnGivenDefaultUInt16()
 		{
 			// Arrange
-			const UInt16 expectedValue = UInt16.MaxValue;
+			const ushort expectedValue = ushort.MaxValue;
 
 			// Act - Convert to UInt16.
 			var actualValue = _nullObject.AsUInt16(expectedValue);
@@ -1303,7 +1303,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnDefaultUInt16()
 		{
 			// Arrange
-			const UInt16 expectedValue = default(UInt16);
+			const ushort expectedValue = default(ushort);
 
 			// Act - Convert to UInt16.
 			var actualValue = "Invalid Object".AsUInt16();
@@ -1316,7 +1316,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnGivenDefaultUInt16()
 		{
 			// Arrange
-			const UInt16 expectedValue = UInt16.MaxValue;
+			const ushort expectedValue = ushort.MaxValue;
 
 			// Act - Convert to UInt16.
 			var actualValue = "Invalid Object".AsUInt16(expectedValue);
@@ -1329,10 +1329,10 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AValidUInt16ObjectShouldReturnUInt16()
 		{
 			// Arrange
-			const UInt16 expectedValue = UInt16.MaxValue;
+			const ushort expectedValue = ushort.MaxValue;
 
 			// Act - Convert to UInt16.
-			var actualValue = UInt16.MaxValue.ToString(CultureInfo.InvariantCulture).AsUInt16();
+			var actualValue = ushort.MaxValue.ToString(CultureInfo.InvariantCulture).AsUInt16();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1346,7 +1346,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnDefaultUInt32()
 		{
 			// Arrange
-			const UInt32 expectedValue = default(UInt32);
+			const uint expectedValue = default(uint);
 
 			// Act - Convert to UInt32.
 			var actualValue = _dbNull.AsUInt32();
@@ -1359,7 +1359,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnGivenDefaultUInt32()
 		{
 			// Arrange
-			const UInt32 expectedValue = UInt32.MaxValue;
+			const uint expectedValue = uint.MaxValue;
 
 			// Act - Convert to UInt32.
 			var actualValue = _dbNull.AsUInt32(expectedValue);
@@ -1372,7 +1372,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnDefaultUInt32()
 		{
 			// Arrange
-			const UInt32 expectedValue = default(UInt32);
+			const uint expectedValue = default(uint);
 
 			// Act - Convert to UInt32.
 			var actualValue = _nullObject.AsUInt32();
@@ -1385,7 +1385,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnGivenDefaultUInt32()
 		{
 			// Arrange
-			const UInt32 expectedValue = UInt32.MaxValue;
+			const uint expectedValue = uint.MaxValue;
 
 			// Act - Convert to UInt32.
 			var actualValue = _nullObject.AsUInt32(expectedValue);
@@ -1398,7 +1398,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnDefaultUInt32()
 		{
 			// Arrange
-			const UInt32 expectedValue = default(UInt32);
+			const uint expectedValue = default(uint);
 
 			// Act - Convert to UInt32.
 			var actualValue = "Invalid Object".AsUInt32();
@@ -1411,7 +1411,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnGivenDefaultUInt32()
 		{
 			// Arrange
-			const UInt32 expectedValue = UInt32.MaxValue;
+			const uint expectedValue = uint.MaxValue;
 
 			// Act - Convert to UInt32.
 			var actualValue = "Invalid Object".AsUInt32(expectedValue);
@@ -1424,10 +1424,10 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AValidUInt32ObjectShouldReturnUInt32()
 		{
 			// Arrange
-			const UInt32 expectedValue = UInt32.MaxValue;
+			const uint expectedValue = uint.MaxValue;
 
 			// Act - Convert to UInt32.
-			var actualValue = UInt32.MaxValue.ToString(CultureInfo.InvariantCulture).AsUInt32();
+			var actualValue = uint.MaxValue.ToString(CultureInfo.InvariantCulture).AsUInt32();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
@@ -1441,7 +1441,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnDefaultUInt64()
 		{
 			// Arrange
-			const UInt64 expectedValue = default(UInt64);
+			const ulong expectedValue = default(ulong);
 
 			// Act - Convert to UInt64.
 			var actualValue = _dbNull.AsUInt64();
@@ -1454,7 +1454,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ADbNullObjectShouldReturnGivenDefaultUInt64()
 		{
 			// Arrange
-			const UInt64 expectedValue = UInt64.MaxValue;
+			const ulong expectedValue = ulong.MaxValue;
 
 			// Act - Convert to UInt64.
 			var actualValue = _dbNull.AsUInt64(expectedValue);
@@ -1467,7 +1467,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnDefaultUInt64()
 		{
 			// Arrange
-			const UInt64 expectedValue = default(UInt64);
+			const ulong expectedValue = default(ulong);
 
 			// Act - Convert to UInt64.
 			var actualValue = _nullObject.AsUInt64();
@@ -1480,7 +1480,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void ANullObjectShouldReturnGivenDefaultUInt64()
 		{
 			// Arrange
-			const UInt64 expectedValue = UInt64.MaxValue;
+			const ulong expectedValue = ulong.MaxValue;
 
 			// Act - Convert to UInt64.
 			var actualValue = _nullObject.AsUInt64(expectedValue);
@@ -1493,7 +1493,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnDefaultUInt64()
 		{
 			// Arrange
-			const UInt64 expectedValue = default(UInt64);
+			const ulong expectedValue = default(ulong);
 
 			// Act - Convert to UInt64.
 			var actualValue = "Invalid Object".AsUInt64();
@@ -1506,7 +1506,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AnInvalidObjectShouldReturnGivenDefaultUInt64()
 		{
 			// Arrange
-			const UInt64 expectedValue = UInt64.MaxValue;
+			const ulong expectedValue = ulong.MaxValue;
 
 			// Act - Convert to UInt64.
 			var actualValue = "Invalid Object".AsUInt64(expectedValue);
@@ -1519,10 +1519,10 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
 		public void AValidUInt64ObjectShouldReturnUInt64()
 		{
 			// Arrange
-			const UInt64 expectedValue = UInt64.MaxValue;
+			const ulong expectedValue = ulong.MaxValue;
 
 			// Act - Convert to UInt64.
-			var actualValue = UInt64.MaxValue.ToString(CultureInfo.InvariantCulture).AsUInt64();
+			var actualValue = ulong.MaxValue.ToString(CultureInfo.InvariantCulture).AsUInt64();
 
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));

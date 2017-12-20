@@ -6,16 +6,16 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit.TestSupport
 {
     public class TestDatabase : Database
     {
-        public TestDatabase(String connectionString,
+        public TestDatabase(string connectionString,
                             DbProviderFactory dbProviderFactory,
-                            Int32 commandTimeout = 60)
+                            int commandTimeout = 60)
                             : base(dbProviderFactory, GetDbConnectionStringBuilder(connectionString), commandTimeout)
         {
         }
 
-        private static DbConnectionStringBuilder GetDbConnectionStringBuilder(String connectionString)
+        private static DbConnectionStringBuilder GetDbConnectionStringBuilder(string connectionString)
         {
-            if (String.IsNullOrWhiteSpace(connectionString))
+            if (string.IsNullOrWhiteSpace(connectionString))
                 throw new ArgumentException(Resources.ExceptionNullOrEmptyString);
             return new DbConnectionStringBuilder() { ConnectionString = connectionString };
         }

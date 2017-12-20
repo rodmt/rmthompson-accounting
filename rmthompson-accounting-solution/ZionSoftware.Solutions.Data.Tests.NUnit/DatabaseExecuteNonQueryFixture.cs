@@ -42,7 +42,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
         public void AnInsertShouldReturnNumberOfRowsAffected()
         {
             // Arrange
-            const String sqlText = "insert [Northwind].[dbo].[Region]( [RegionId], [RegionDescription] ) values ( @param1, @param2 );";
+            const string sqlText = "insert [Northwind].[dbo].[Region]( [RegionId], [RegionDescription] ) values ( @param1, @param2 );";
             IDbCommand dbCommand = _database.GetSqlTextCommand(sqlText);
             _database.AddInParameter(dbCommand, "@param1", DbType.Int32, 7);
             _database.AddInParameter(dbCommand, "@param2", DbType.String, "TestRegion");

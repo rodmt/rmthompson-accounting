@@ -71,7 +71,7 @@ namespace ZionSoftware.Solutions.Data
 		/// <returns></returns>
 		public static T Read<T>(IDataReader dataReader,
 								Func<IDataRecord, T> make,
-								Boolean advanceReader)
+								bool advanceReader)
 		{
 			// Check if the reader is closed and if we 
 			// are able advance to the next record.

@@ -28,7 +28,7 @@ namespace ZionSoftware.Solutions.Data.Tests.NUnit
     public class DatabaseFixture
     {
         private DbProviderFactory m_dbProviderFactory;
-        private String m_connectionString;
+        private string m_connectionString;
 
         [SetUp]
         public void Init()
