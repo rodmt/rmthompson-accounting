@@ -1,0 +1,31 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+  </Folder>
+  <Folder Name="/Unit Tests/">
+    <Project Path="ZionSoftware.Solutions.Data.Tests.NUnit/ZionSoftware.Solutions.Data.Tests.NUnit.csproj" />
+  </Folder>
+  <Folder Name="/Infrastructure/">
+    <Project Path="ZionSoftware.Data/ZionSoftware.Solutions.Data.csproj" />
+  </Folder>
+  <Folder Name="/6. Databases/">
+    <Project Path="ThompsonAccounting/ThompsonAccounting.sqlproj">
+      <Configuration Solution="Debug|*" Project="Debug" Deploy="true" />
+      <Configuration Solution="Release|*" Project="Release" Deploy="true" />
+    </Project>
+  </Folder>
+  <Folder Name="/5. Data Layer/">
+  </Folder>
+  <Folder Name="/4. Business Layer/">
+  </Folder>
+  <Folder Name="/3. Service Layer/">
+    <Project Path="ThompsonAccountingCoreWeb/ThompsonAccountingCoreWeb.csproj" />
+    <Project Path="ThompsonAccountingWeb/ThompsonAccountingWeb.csproj" />
+  </Folder>
+  <Folder Name="/2. Hosting Layer/">
+  </Folder>
+  <Folder Name="/1. Presentation Layer/">
+  </Folder>
+  <Properties Name="Visual Studio">
+    <Property Name="SolutionGuid">{BCDB2940-1539-4639-86F6-3C8D4BCCADC4}</Property>
+  </Properties>
+</Solution>
